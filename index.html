@@ -3,7 +3,7 @@
 用法（5 行）：
 1. 把本 HTML 和 mp3 一起 AirDrop 到 iPhone，存进「文件」App 同一文件夹。
 2. 在「文件」里点本 HTML（或分享→用 Safari 打开），点「选音频」选那个 mp3。
-3. 听到问题就点颜色键：红=念错 橙=太快/语调跳 黄=文案/听感 蓝=音效👎 灰=备注。
+3. 听到问题就点颜色键：红=念错 橙=语速语调 黄=文案/听感 蓝=音效👎 灰=备注。
 4. （仅制作者用）页面最下方「显示本版改动」展开后，绿色标签=上一版以来改动处，点一下直接跳去听；列表可写备注/删除，自动存本机。
 5. 听完点「分享」或「复制清单」发回给 Grok Bot（时间精确到 mm:ss.s）。
 -->
@@ -106,7 +106,7 @@ details summary{padding:8px 0;color:#9aa}
  <div class="st"><span class="n">2</span><div>听见不对劲，<b>马上点下面的圆钮</b>：<br>
   <span class="dt" style="background:#6b7280"></span><b style="color:#374151">灰色「✎ 备注」最好用</b>＝一点就暂停，弹出「这里你想说什么」，可打字或点快捷词（念错/太快/停顿怪…）。有话想说就用这个。<br>
   <span class="dt" style="background:#e5484d"></span><b>念错</b>＝字念错了（不用停）<br>
-  <span class="dt" style="background:#f08c2b"></span><b>太快</b>＝太快、停得怪、语调突然跳<br>
+  <span class="dt" style="background:#f08c2b"></span><b>语速语调</b>＝太快、太慢、停得怪、语调突然跳<br>
   <span class="dt" style="background:#e3b505"></span><b>听不懂</b>＝没听明白<br>
   <span class="dt" style="background:#3b82f6"></span><b>音效👎</b>＝声音效果不好<br>
   <small>点错了就点「↶ 撤销」。彩色钮只记标签；灰色能写清楚。</small></div></div>
@@ -133,7 +133,7 @@ details summary{padding:8px 0;color:#9aa}
 </div>
 <div class="card marks mkw">
  <div class="mkc"><button class="mk c红" data-c="红">念错<b class="bd" id="bd红"></b></button></div>
- <div class="mkc"><button class="mk c橙" data-c="橙">太快/语调跳<b class="bd" id="bd橙"></b></button></div>
+ <div class="mkc"><button class="mk c橙" data-c="橙">语速语调<b class="bd" id="bd橙"></b></button></div>
  <div class="mkc"><button class="mk c黄" data-c="黄">听不懂<b class="bd" id="bd黄"></b></button></div>
  <div class="mkc"><button class="mk c蓝" data-c="蓝">音效👎<b class="bd" id="bd蓝"></b></button></div>
  <button class="mk c灰" data-c="灰">✎ 备注（写字说明）</button>
@@ -158,7 +158,7 @@ details summary{padding:8px 0;color:#9aa}
 </details>
 <script>
 const $=s=>document.querySelector(s),au=$('#au');
-const TAG={红:'念错',橙:'太快/语调跳',黄:'文案/听感',蓝:'音效👎',灰:'备注'};
+const TAG={红:'念错',橙:'语速语调',黄:'文案/听感',蓝:'音效👎',灰:'备注'};
 const COL={红:'#d93a3a',橙:'#e8822a',黄:'#d9b520',蓝:'#2f7be0',灰:'#6b7280'};
 let key='',marks=[],lines=[],cls=[];
 const fmt=s=>{s=Math.max(0,s||0);const m=Math.floor(s/60);let r=(Math.floor(s%60*10)/10).toFixed(1);return String(m).padStart(2,'0')+':'+r.padStart(4,'0')};
