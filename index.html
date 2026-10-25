@@ -3,7 +3,7 @@
 用法（5 行）：
 1. 把本 HTML 和 mp3 一起 AirDrop 到 iPhone，存进「文件」App 同一文件夹。
 2. 在「文件」里点本 HTML（或分享→用 Safari 打开），点「选音频」选那个 mp3。
-3. 听到问题就点颜色键：红=念错 橙=太快 黄=文案/听感 蓝=音效👎 灰=备注。
+3. 听到问题就点颜色键：红=念错 橙=太快/语调跳 黄=文案/听感 蓝=音效👎 灰=备注。
 4. （仅制作者用）页面最下方「显示本版改动」展开后，绿色标签=上一版以来改动处，点一下直接跳去听；列表可写备注/删除，自动存本机。
 5. 听完点「分享」或「复制清单」发回给 Grok Bot（时间精确到 mm:ss.s）。
 -->
@@ -105,7 +105,7 @@ details summary{padding:8px 0;color:#9aa}
  <div class="st"><span class="n">1</span><div>先点中间那个<b class="blue">蓝色大圆「▶」</b>，开始听。<br><small>声音小？按手机侧面的音量键。</small></div></div>
  <div class="st"><span class="n">2</span><div>听见不对劲，<b>马上点下面的彩色圆钮</b>（不用停）：<br>
   <span class="dt" style="background:#e5484d"></span><b>念错</b>＝字念错了<br>
-  <span class="dt" style="background:#f08c2b"></span><b>太快</b>＝太快、停得怪<br>
+  <span class="dt" style="background:#f08c2b"></span><b>太快</b>＝太快、停得怪、语调突然跳（忽高忽快）<br>
   <span class="dt" style="background:#e3b505"></span><b>听不懂</b>＝没听明白<br>
   <span class="dt" style="background:#3b82f6"></span><b>音效👎</b>＝声音效果不好<br>
   <small>例子：听到一个字念错了 → 点一下<b>念错</b>。点错了就点「↶ 撤销」。</small></div></div>
@@ -132,12 +132,12 @@ details summary{padding:8px 0;color:#9aa}
 </div>
 <div class="card marks mkw">
  <div class="mkc"><button class="mk c红" data-c="红">念错<b class="bd" id="bd红"></b></button></div>
- <div class="mkc"><button class="mk c橙" data-c="橙">太快<b class="bd" id="bd橙"></b></button></div>
+ <div class="mkc"><button class="mk c橙" data-c="橙">太快/语调跳<b class="bd" id="bd橙"></b></button></div>
  <div class="mkc"><button class="mk c黄" data-c="黄">听不懂<b class="bd" id="bd黄"></b></button></div>
  <div class="mkc"><button class="mk c蓝" data-c="蓝">音效👎<b class="bd" id="bd蓝"></b></button></div>
  <button class="mk c灰" data-c="灰">✎ 备注（写字说明）</button>
 </div>
-<div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipF">点上面某一句 = 把这条标记对到那句</div></div>
+<div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipF">点上面某一句 = 把这条标记对到那句</div><div id="snipN" style="display:flex;gap:8px;margin-top:8px"><button type="button" data-d="-1000">◀ 早1秒</button><button type="button" data-d="-300">早0.3</button><button type="button" data-d="300">晚0.3</button><button type="button" data-d="1000">晚1秒 ▶</button></div></div>
 <div class="card">
  <div class="row"><button id="undo">↶ 撤销</button><button id="copy">复制清单</button></div>
  <div class="row" style="margin-top:8px"><button id="share">📤 发送</button></div>
@@ -157,7 +157,7 @@ details summary{padding:8px 0;color:#9aa}
 </details>
 <script>
 const $=s=>document.querySelector(s),au=$('#au');
-const TAG={红:'念错',橙:'太快',黄:'文案/听感',蓝:'音效👎',灰:'备注'};
+const TAG={红:'念错',橙:'太快/语调跳',黄:'文案/听感',蓝:'音效👎',灰:'备注'};
 const COL={红:'#d93a3a',橙:'#e8822a',黄:'#d9b520',蓝:'#2f7be0',灰:'#6b7280'};
 let key='',marks=[],lines=[],cls=[];
 const fmt=s=>{s=Math.max(0,s||0);const m=Math.floor(s/60);let r=(Math.floor(s%60*10)/10).toFixed(1);return String(m).padStart(2,'0')+':'+r.padStart(4,'0')};
@@ -236,8 +236,9 @@ window.showSnip=async function(m){lastM=m;const box=E('snip');box.style.display=
  const segs=tr&&(tr.segments||tr);if(!segs||!segs.length){E('snipH').textContent=m.color+' '+m.time+' · 这版音频还没有带时间的原文';E('snipB').innerHTML='';E('snipF').textContent='标记已记下时间，照常用';return}
  let ci=segs.findIndex(s=>s.start<=t+0.3&&t<s.end+0.6);if(ci<0){ci=0;segs.forEach((s,i)=>{if(s.start<=t)ci=i})}
  const a=Math.max(0,ci-2),b=Math.min(segs.length,ci+2);m.text=segs[ci].text.trim();m.line=segs[ci].id||'';save();render();
- E('snipH').textContent=m.color+' '+m.time+' 附近原文'+(tr.note?'（'+tr.note+'）':'');
- E('snipB').innerHTML=segs.slice(a,b).map((s,k)=>`<button type="button" class="sl${a+k===ci?' cur pick':''}" data-k="${a+k}"><i>${fmt(s.start)}</i>${esc2(s.text.trim())}</button>`).join('');E('snipF').textContent='点某一句 = 把这条标记对到那句'};
+ E('snipH').textContent='是这吗？ '+m.color+' '+m.time+' 附近原文'+(tr.note?'（'+tr.note+'）':'');
+ E('snipB').innerHTML=segs.slice(a,b).map((s,k)=>`<button type="button" class="sl${a+k===ci?' cur pick':''}" data-k="${a+k}"><i>${fmt(s.start)}</i>${esc2(s.text.trim())}</button>`).join('');E('snipF').textContent='不对？点对的那句，或用下面按钮微调时间'};
+E('snipN').onclick=e=>{const b=e.target.closest('button');if(!b||!lastM)return;lastM.t_ms=Math.max(0,lastM.t_ms+(+b.dataset.d));lastM.time=fmt(lastM.t_ms/1000);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();navigator.vibrate&&navigator.vibrate(10);showSnip(lastM)};
 E('snipB').onclick=e=>{const b=e.target.closest('.sl');if(!b||!lastM)return;const s=(TR.segments||TR)[+b.dataset.k];lastM.text=s.text.trim();lastM.line=s.id||'';save();render();document.querySelectorAll('#snipB .sl').forEach(x=>x.classList.toggle('pick',x===b));navigator.vibrate&&navigator.vibrate(15);toast('已对到：'+lastM.text.slice(0,12))};
 document.querySelectorAll('.skb').forEach(b=>{const on=()=>{b.classList.add('pr');navigator.vibrate&&navigator.vibrate(8)},off=()=>setTimeout(()=>b.classList.remove('pr'),90);b.addEventListener('touchstart',on,{passive:true});b.addEventListener('touchend',off);b.addEventListener('touchcancel',off);b.addEventListener('mousedown',on);b.addEventListener('mouseup',off);b.addEventListener('mouseleave',off)});
 })();
