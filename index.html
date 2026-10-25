@@ -76,22 +76,32 @@ details summary{padding:8px 0;color:#9aa}
 #lk{min-height:44px;font-size:16px;padding:6px 12px;border-radius:22px;background:#3a3f4b}
 #lk.un{background:#16a34a}
 #seek:disabled{opacity:.75}#seek:disabled::-webkit-slider-thumb{background:#9aa}
+#howBtn{display:flex;flex-direction:column;align-items:center;width:100%;min-height:72px;margin:0 0 12px;border:0;border-radius:36px;background:linear-gradient(135deg,#fde68a,#f59e0b);color:#3b2500;font-size:26px;font-weight:800;box-shadow:0 4px 14px rgba(245,158,11,.4)}
+#howBtn small{font-size:14px;font-weight:600;opacity:.8}#howBtn:active{transform:scale(.97)}
+#howM{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.6);padding:16px;overflow:auto}#howM.on{display:block}
+#howM .howto{position:relative;max-width:520px;margin:20px auto;border-radius:20px;animation:pop .2s}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+.hx{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;font-size:20px;background:#0002}
+.hok{width:100%;min-height:56px;margin-top:12px;border:0;border-radius:28px;background:#16a34a;color:#fff;font-size:22px;font-weight:800}
 </style></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
-<div class="card howto">
+<button id="howBtn" type="button" onclick="document.getElementById('howM').classList.add('on')">❓ 怎么用？<small>点我看三步说明</small></button>
+<div id="howM" onclick="if(event.target===this)this.classList.remove('on')"><div class="card howto">
+ <button class="hx" type="button" onclick="document.getElementById('howM').classList.remove('on')">✕</button>
  <div class="ht">👵 怎么用（只要三步）</div>
  <div class="st"><span class="n">1</span><div>先点中间那个<b class="blue">蓝色大圆「▶」</b>，开始听。<br><small>声音小？按手机侧面的音量键。</small></div></div>
  <div class="st"><span class="n">2</span><div>听见不对劲，<b>马上点下面的彩色圆钮</b>（不用停）：<br>
-  <span class="dt" style="background:#e5484d"></span><b>红</b>＝念错字<br>
-  <span class="dt" style="background:#f08c2b"></span><b>橙</b>＝太快、停得怪<br>
-  <span class="dt" style="background:#e3b505"></span><b>黄</b>＝听不懂<br>
-  <span class="dt" style="background:#3b82f6"></span><b>蓝</b>＝音效👎（声音效果不好）<br>
-  <small>例子：听到一个字念错了 → 点一下<b>红</b>。点错了就点「↶ 撤销」。</small></div></div>
+  <span class="dt" style="background:#e5484d"></span><b>念错</b>＝字念错了<br>
+  <span class="dt" style="background:#f08c2b"></span><b>太快</b>＝太快、停得怪<br>
+  <span class="dt" style="background:#e3b505"></span><b>听不懂</b>＝没听明白<br>
+  <span class="dt" style="background:#3b82f6"></span><b>音效👎</b>＝声音效果不好<br>
+  <small>例子：听到一个字念错了 → 点一下<b>念错</b>。点错了就点「↶ 撤销」。</small></div></div>
  <div class="st"><span class="n">3</span><div>听完了，<b>往下滑</b>，点<b class="org">橙色「发送」</b> → 选<b>微信</b> → 选人 → 发送。<br><small>不会用？点「复制清单」，再到微信里长按「粘贴」发过去。</small></div></div>
  <div class="opt">（可选）Safari 底部点分享 □↑ →「添加到主屏幕」，以后桌面一点就开。</div>
  <div class="wei">给 wei：换新版音频后刷新即可</div>
-</div>
+ <button type="button" class="hok" onclick="document.getElementById('howM').classList.remove('on')">知道了 👍</button>
+</div></div>
 <div class="card">
  <label class="btn" style="width:100%">🎧 选音频<input id="file" type="file" accept="audio/*,.mp3,.m4a,.wav" hidden></label>
  <details><summary>或粘贴网址/相对路径</summary><div class="row"><input id="url" type="text" placeholder="https://… 或 EP01_v7.mp3"><button id="load" style="flex:0 0 80px">载入</button></div></details>
