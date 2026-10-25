@@ -84,7 +84,18 @@ details summary{padding:8px 0;color:#9aa}
 .hx{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;font-size:20px;background:#0002}
 .hok{width:100%;min-height:56px;margin-top:12px;border:0;border-radius:28px;background:#16a34a;color:#fff;font-size:22px;font-weight:800}
 
-.lg.on{background:#f97316!important;color:#fff!important}</style></head><body>
+.lg.on{background:#f97316!important;color:#fff!important}
+.row:has(.skb){justify-content:space-between;align-items:center}
+.skb{flex:0 0 60px!important;width:60px;height:60px;min-height:60px!important;border-radius:50%!important;padding:0!important;flex-direction:column;font-size:20px!important;line-height:1;background:linear-gradient(#323947,#232833)!important;box-shadow:0 5px 0 #000a,inset 0 2px 0 #fff3;transition:transform .08s,box-shadow .08s,filter .08s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
+.skb small{font-size:12px;opacity:.85;margin-top:2px}.skb *{pointer-events:none}
+.skb.pp{flex-basis:76px!important;width:76px;height:76px;font-size:30px!important;background:linear-gradient(#5b8cff,#3a6df0)!important}
+.skb:active,.skb.pr{transform:translateY(4px) scale(.93)!important;box-shadow:0 1px 0 #000a,inset 0 3px 8px #0009!important;filter:brightness(1.35)!important}
+#snip{border:2px solid #444}#snipH{font-size:14px;color:#9aa;margin-bottom:8px}
+#snipB .sl{display:block;width:100%;text-align:left;justify-content:flex-start;font-size:17px;line-height:1.45;padding:8px 10px;min-height:0;margin:4px 0;background:#20242d;border-radius:10px;color:#bbc}
+#snipB .sl.cur{background:#3a2a10;color:#fff;font-weight:700;border-left:5px solid #f97316}
+#snipB .sl.pick{outline:2px solid #22c55e}#snipB .sl i{font-style:normal;font-size:12px;color:#889;margin-right:6px}
+#snipF{font-size:13px;color:#778;margin-top:6px}
+</style></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
 <button id="howBtn" type="button" onclick="document.getElementById('howM').classList.add('on')">❓ 怎么用？<small>点我看三步说明</small></button>
@@ -113,7 +124,7 @@ details summary{padding:8px 0;color:#9aa}
  <div id="time">00:00.0 / 00:00</div>
  <div id="tlab"><span>现在</span><button id="lk" class="lk">🔒 已锁定（点这里解锁拖动）</button><span>总长</span></div>
  <div id="bar"><div id="chips"></div><input id="seek" disabled type="range" min="0" max="1000" value="0"></div>
- <div class="row" style="margin:8px 0"><button data-j="-15">-15</button><button data-j="-5">-5</button><button id="pp">▶</button><button data-j="5">+5</button><button data-j="15">+15</button></div>
+ <div class="row" style="margin:8px 0"><button class="skb" data-j="-15">⏪<small>15</small></button><button class="skb" data-j="-5">↺<small>5</small></button><button class="skb pp" id="pp">▶</button><button class="skb" data-j="5">↻<small>5</small></button><button class="skb" data-j="15">⏩<small>15</small></button></div>
  <div class="row"><button class="sp" data-s="0.7">0.7×</button><button class="sp" data-s="0.8">0.8×</button><button class="sp on" data-s="1">1×</button><button class="sp" data-s="1.1">1.1×</button><button class="sp" data-s="1.25">1.25×</button></div>
 
 </div>
@@ -124,6 +135,7 @@ details summary{padding:8px 0;color:#9aa}
  <div class="mkc"><button class="mk c蓝" data-c="蓝">音效👎<b class="bd" id="bd蓝"></b></button></div>
  <button class="mk c灰" data-c="灰">✎ 备注（写字说明）</button>
 </div>
+<div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipF">点上面某一句 = 把这条标记对到那句</div></div>
 <div class="card">
  <div class="row"><button id="undo">↶ 撤销</button><button id="copy">复制清单</button></div>
  <div class="row" style="margin-top:8px"><button id="share">📤 发送</button></div>
@@ -182,7 +194,7 @@ function nearest(t){let best=null;lines.forEach(l=>{if(l.t!=null&&l.t<=t+0.3&&(!
 function addMark(c,t,note){const l=nearest(t);const m={t_ms:Math.round(t*1000),time:fmt(t),color:c,tag:TAG[c],note:note||'',line:l?l.id:'',text:l?l.text:'',_c:Date.now()};marks.push(m);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();return m}
 let noteT=0;function openNote(){au.pause();noteT=au.currentTime;$('#nmT').textContent=fmt(noteT);$('#nmI').value='';document.querySelectorAll('#nmQ .q').forEach(b=>{b.classList.remove('on')});$('#nm').style.display='flex';setTimeout(()=>$('#nmI').focus(),50)}
 document.querySelectorAll('.mk').forEach(b=>b.onclick=()=>{if(!key)key='ep:EP01_v7';if(b.dataset.c==='灰'){openNote();return}b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit');setTimeout(()=>b.classList.remove('hit'),450);const t=au.currentTime,c=b.dataset.c,l=nearest(t);
- const m={t_ms:Math.round(t*1000),time:fmt(t),color:c,tag:TAG[c],note:'',line:l?l.id:'',text:l?l.text:'',_c:Date.now()};marks.push(m);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();navigator.vibrate&&navigator.vibrate(30);toast(c+' '+m.time+(l?' '+l.id:''));});
+ const m={t_ms:Math.round(t*1000),time:fmt(t),color:c,tag:TAG[c],note:'',line:l?l.id:'',text:l?l.text:'',_c:Date.now()};marks.push(m);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();navigator.vibrate&&navigator.vibrate(30);toast(c+' '+m.time+(l?' '+l.id:''));window.showSnip&&showSnip(m);});
 $('#undo').onclick=()=>{if(!marks.length)return;let i=marks.reduce((a,m,j)=>(m._c||0)>(marks[a]._c||0)?j:a,0);marks.splice(i,1);save();render();toast('已撤销')};
 function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改动 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.line?'['+m.line+'] ':''}${m.tag}${m.note?'：'+esc(m.note):''}</span><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
@@ -206,4 +218,19 @@ const h=await fetch('audio/'+f+'.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&
 (()=>{const b=document.getElementById('lk'),k=document.getElementById('seek');let t;
 const set=u=>{k.disabled=!u;b.classList.toggle('un',u);b.textContent=u?'🔓 可拖动（点这里锁定）':'🔒 已锁定（点这里解锁拖动）';clearTimeout(t);if(u)t=setTimeout(()=>set(false),15000)};
 b.onclick=()=>set(k.disabled);k.addEventListener('change',()=>{clearTimeout(t);t=setTimeout(()=>set(false),5000)});set(false)})();
-</script></body></html>
+</script><script>
+(()=>{let TR=null,TRsrc='',lastM=null;const E=x=>document.getElementById(x);
+async function getTR(){const u=(au.currentSrc||au.src||'').split('?')[0];if(u===TRsrc)return TR;TRsrc=u;TR=null;
+ const m=u.match(/audio\/([^/]+)\.mp3$/);if(!m)return null;try{const r=await fetch('audio/'+m[1]+'.tr.json?'+Date.now());if(r.ok)TR=await r.json()}catch(e){}return TR}
+function esc2(t){return String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+window.showSnip=async function(m){lastM=m;const box=E('snip');box.style.display='block';box.style.borderColor=COL[m.color]||'#444';const t=m.t_ms/1000;const tr=await getTR();
+ const segs=tr&&(tr.segments||tr);if(!segs||!segs.length){E('snipH').textContent=m.color+' '+m.time+' · 这版音频还没有带时间的原文';E('snipB').innerHTML='';E('snipF').textContent='标记已记下时间，照常用';return}
+ let ci=segs.findIndex(s=>s.start<=t+0.3&&t<s.end+0.6);if(ci<0){ci=0;segs.forEach((s,i)=>{if(s.start<=t)ci=i})}
+ const a=Math.max(0,ci-2),b=Math.min(segs.length,ci+2);m.text=segs[ci].text.trim();m.line=segs[ci].id||'';save();render();
+ E('snipH').textContent=m.color+' '+m.time+' 附近原文'+(tr.note?'（'+tr.note+'）':'');
+ E('snipB').innerHTML=segs.slice(a,b).map((s,k)=>`<button type="button" class="sl${a+k===ci?' cur pick':''}" data-k="${a+k}"><i>${fmt(s.start)}</i>${esc2(s.text.trim())}</button>`).join('');E('snipF').textContent='点某一句 = 把这条标记对到那句'};
+E('snipB').onclick=e=>{const b=e.target.closest('.sl');if(!b||!lastM)return;const s=(TR.segments||TR)[+b.dataset.k];lastM.text=s.text.trim();lastM.line=s.id||'';save();render();document.querySelectorAll('#snipB .sl').forEach(x=>x.classList.toggle('pick',x===b));navigator.vibrate&&navigator.vibrate(15);toast('已对到：'+lastM.text.slice(0,12))};
+document.querySelectorAll('.skb').forEach(b=>{const on=()=>{b.classList.add('pr');navigator.vibrate&&navigator.vibrate(8)},off=()=>setTimeout(()=>b.classList.remove('pr'),90);b.addEventListener('touchstart',on,{passive:true});b.addEventListener('touchend',off);b.addEventListener('touchcancel',off);b.addEventListener('mousedown',on);b.addEventListener('mouseup',off);b.addEventListener('mouseleave',off)});
+})();
+</script>
+</body></html>
