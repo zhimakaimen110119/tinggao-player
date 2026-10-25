@@ -95,7 +95,7 @@ details summary{padding:8px 0;color:#9aa}
 #snipB .sl.cur{background:#3a2a10;color:#fff;font-weight:700;border-left:5px solid #f97316}
 #snipB .sl.pick{outline:2px solid #22c55e}#snipB .sl i{font-style:normal;font-size:12px;color:#889;margin-right:6px}
 #snipF{font-size:13px;color:#778;margin-top:6px}
-</style></head><body>
+</style><script>try{if(localStorage.getItem("tg_hideHow")==="1")document.write("<style>#howBtn{display:none!important}</style>")}catch(e){}</script></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
 <button id="howBtn" type="button" onclick="document.getElementById('howM').classList.add('on')">❓ 怎么用？<small>点我看三步说明</small></button>
@@ -113,8 +113,10 @@ details summary{padding:8px 0;color:#9aa}
  <div class="opt">（可选）Safari 底部点分享 □↑ →「添加到主屏幕」，以后桌面一点就开。</div>
  <div class="wei">给 wei：换新版音频后刷新即可</div>
  <button type="button" class="hok" onclick="document.getElementById('howM').classList.remove('on')">知道了 👍</button>
+ <button type="button" class="hok" style="background:#e5e7eb;color:#333;margin-top:8px" onclick="try{localStorage.setItem('tg_hideHow','1')}catch(e){};document.getElementById('howM').classList.remove('on');document.getElementById('howBtn').style.display='none'">不再显示这个按钮</button>
 </div></div>
 <div class="card">
+ <select id="epSel" onchange="pickEp(this.value)" style="width:100%;font-size:20px;padding:12px;margin-bottom:8px;border-radius:12px;border:2px solid #f59e0b;font-weight:700"><option>EP01</option></select>
  <div class="row" id="langsw" style="margin-bottom:8px"><button type="button" id="lzh" class="lg on" onclick="pickLang('zh')" style="font-size:18px;padding:12px">🇨🇳 中文版</button><button type="button" id="len" class="lg" onclick="pickLang('en')" style="font-size:18px;padding:12px">🇺🇸 英文版</button></div>
  <label class="btn" style="width:100%">🎧 选音频<input id="file" type="file" accept="audio/*,.mp3,.m4a,.wav" hidden></label>
  <details><summary>或粘贴网址/相对路径</summary><div class="row"><input id="url" type="text" placeholder="https://… 或 EP01_v7.mp3"><button id="load" style="flex:0 0 80px">载入</button></div></details>
@@ -209,10 +211,17 @@ render();
 <style>.mk{touch-action:manipulation}.mk *{pointer-events:none}</style>
 <script>try{if(!LSOK)toast('此模式不能存，听完记得点复制/分享');if(!cls||!cls.length)loadCL(DEFAULT_CL)}catch(e){}</script><script>
 const EN_CL='[{"t": "00:00.9", "label": "227 BC 开场", "version": "EN v1"}, {"t": "12:29.3", "label": "Rrrip 断袖", "version": "EN v1"}, {"t": "14:59.0", "label": "荆轲遗言（他自己的说法）", "version": "EN v1"}, {"t": "16:33.7", "label": "222 BC Yan fell", "version": "EN v1"}, {"t": "16:42.2", "label": "Six years", "version": "EN v1"}, {"t": "17:07.5", "label": "Emperor·收束", "version": "EN v1"}]';
-async function pickLang(lg){try{const f=lg==='en'?'latest_en':'latest',vf=lg==='en'?'version_en.txt':'version.txt';let v=lg==='en'?'EP01_EN_latest':'EP01_latest';try{const r=await fetch('audio/'+vf+'?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
-window.CUR_CL=lg==='en'?EN_CL:DEFAULT_CL;document.getElementById('lzh').classList.toggle('on',lg==='zh');document.getElementById('len').classList.toggle('on',lg==='en');try{localStorage.setItem('tg:lang',lg)}catch(e){}
-const h=await fetch('audio/'+f+'.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){au.pause();setSrc('audio/'+f+'.mp3?v='+encodeURIComponent(v),v)}else toast('这个语言的音频还没上传')}catch(e){}}
-(()=>{let lg='zh';try{lg=localStorage.getItem('tg:lang')||'zh'}catch(e){}pickLang(lg)})();
+let EPS=[{id:'EP01',title:'EP01',zh:{file:'audio/latest.mp3',version:'audio/version.txt'},en:{file:'audio/latest_en.mp3',version:'audio/version_en.txt'}}],CUR_EP='EP01',CUR_LG='zh';
+function ep(){return EPS.find(x=>x.id===CUR_EP)||EPS[0]}
+function fillEp(){const s=document.getElementById('epSel');s.innerHTML=EPS.map(x=>'<option value="'+x.id+'">'+x.title+'</option>').join('');s.value=ep().id}
+function pickEp(id){CUR_EP=id;try{localStorage.setItem('tg:ep',id)}catch(e){}pickLang(CUR_LG)}
+async function pickLang(lg){try{CUR_LG=lg;const E=ep(),src=E[lg];let v=E.id+'_'+lg+'_latest';
+window.CUR_CL=(E.id==='EP01')?(lg==='en'?EN_CL:DEFAULT_CL):(src&&src.cl?JSON.stringify(src.cl):'[]');document.getElementById('lzh').classList.toggle('on',lg==='zh');document.getElementById('len').classList.toggle('on',lg==='en');try{localStorage.setItem('tg:lang',lg)}catch(e){}
+if(!src){toast('这一集的'+(lg==='en'?'英文':'中文')+'还没上传');return}
+try{const r=await fetch(src.version+'?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
+const h=await fetch(src.file,{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){au.pause();setSrc(src.file+'?v='+encodeURIComponent(v),v)}else toast('这个音频还没上传')}catch(e){}}
+(async()=>{try{const r=await fetch('audio/episodes.json?'+Date.now());if(r.ok){const j=await r.json();if(j.episodes&&j.episodes.length)EPS=j.episodes}}catch(e){}
+let lg='zh';try{lg=localStorage.getItem('tg:lang')||'zh';CUR_EP=localStorage.getItem('tg:ep')||EPS[0].id}catch(e){}if(!EPS.find(x=>x.id===CUR_EP))CUR_EP=EPS[0].id;fillEp();pickLang(lg)})();
 </script>/details>
 <script>
 (()=>{const b=document.getElementById('lk'),k=document.getElementById('seek');let t;
