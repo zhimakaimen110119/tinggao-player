@@ -60,15 +60,16 @@ details summary{padding:8px 0;color:#9aa}
 #pp{width:96px;height:96px;flex:0 0 96px!important;border-radius:50%!important;font-size:30px!important;background:#2563eb!important;box-shadow:0 0 0 6px #2563eb44}
 .marks{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:8px;text-align:center}
 .mk{position:relative;width:74px;height:74px;min-height:74px!important;border-radius:50%!important;margin:0 auto;font-size:24px!important;font-weight:800;box-shadow:0 4px 0 #0006,inset 0 2px 0 #fff4;transition:transform .12s}
-.mk small{position:absolute;top:80px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:14px!important;color:#ddd}
-.mkw{padding-bottom:28px}
+.mk small{display:none}
+.mkc{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}.mkc>span{font-size:14px;color:#ddd;white-space:nowrap;line-height:1.2}
+.mkw{padding:20px 10px 16px;row-gap:22px!important}
 .mk.hit{transform:scale(1.18);box-shadow:0 0 0 6px #fff,0 0 0 10px currentColor}
 .mk.hit::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px;background:#0007;border-radius:50%;color:#fff}
 .mk b.bd{position:absolute;top:-6px;right:-6px;min-width:28px;height:28px;border-radius:14px;background:#fff;color:#111;font-size:16px;display:flex;align-items:center;justify-content:center;padding:0 6px}
 .mk b.bd:empty{display:none}
 .c红{background:#e5484d!important;color:#e5484d}.c橙{background:#f08c2b!important;color:#f08c2b}.c黄{background:#e3b505!important;color:#e3b505}.c蓝{background:#3b82f6!important;color:#3b82f6}
 .mk{color:#fff}.mk.c黄{color:#111}
-.mk.c灰{grid-column:span 4;width:auto;height:52px;min-height:52px!important;border-radius:26px!important;font-size:18px!important}
+.mk.c灰{grid-column:1/-1;margin-top:4px;width:auto;height:52px;min-height:52px!important;border-radius:26px!important;font-size:18px!important}
 #share{background:#f08c2b!important;font-size:22px!important;font-weight:800;min-height:64px}
 #lk{min-height:44px;font-size:16px;padding:6px 12px;border-radius:22px;background:#3a3f4b}
 #lk.un{background:#16a34a}
@@ -103,10 +104,10 @@ details summary{padding:8px 0;color:#9aa}
 
 </div>
 <div class="card marks mkw">
- <button class="mk c红" data-c="红">红<b class="bd" id="bd红"></b><small>念错</small></button>
- <button class="mk c橙" data-c="橙">橙<b class="bd" id="bd橙"></b><small>太快/停顿怪</small></button>
- <button class="mk c黄" data-c="黄">黄<b class="bd" id="bd黄"></b><small>听不懂</small></button>
- <button class="mk c蓝" data-c="蓝">蓝<b class="bd" id="bd蓝"></b><small>音效</small></button>
+ <div class="mkc"><button class="mk c红" data-c="红">红<b class="bd" id="bd红"></b></button><span>念错</span></div>
+ <div class="mkc"><button class="mk c橙" data-c="橙">橙<b class="bd" id="bd橙"></b></button><span>太快/停顿怪</span></div>
+ <div class="mkc"><button class="mk c黄" data-c="黄">黄<b class="bd" id="bd黄"></b></button><span>听不懂</span></div>
+ <div class="mkc"><button class="mk c蓝" data-c="蓝">蓝<b class="bd" id="bd蓝"></b></button><span>音效</span></div>
  <button class="mk c灰" data-c="灰">灰 · 备注</button>
 </div>
 <div class="card">
@@ -117,7 +118,7 @@ details summary{padding:8px 0;color:#9aa}
 
 <audio id="au" preload="metadata" playsinline></audio>
 <div id="toast"></div>
-<details id="advcl" style="margin:24px 0 12px;font-size:12px;color:#888"><summary style="opacity:.6">显示本版改动（高级）</summary>
+<details id="advcl" style="clear:both;position:static;margin:24px 0 12px;font-size:12px;color:#888"><summary style="opacity:.6">显示本版改动（高级）</summary>
 <div id="clwrap" style="display:none;margin-top:10px"><div style="font-size:13px;color:#86efac">本版改动点（时间＋说明，点一下跳过去听）</div><div id="cl"></div></div>
 <details style="margin-top:8px"><summary>载入本版改动点清单</summary>
  <textarea id="clraw" rows="5" placeholder='[{"t":"15:32.0","label":"背抵着柱子 bèi","version":"v7"}]&#10;或每行：- 15:32.0 背抵着柱子 (v7)'></textarea>
@@ -170,7 +171,7 @@ document.querySelectorAll('.mk').forEach(b=>b.onclick=()=>{if(!key)key='ep:EP01_
 $('#undo').onclick=()=>{if(!marks.length)return;let i=marks.reduce((a,m,j)=>(m._c||0)>(marks[a]._c||0)?j:a,0);marks.splice(i,1);save();render();toast('已撤销')};
 function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改动 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.line?'['+m.line+'] ':''}${m.tag}${m.note?'：'+esc(m.note):''}</span><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
-function renderChips(){['红','橙','黄','蓝'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join('')+cls.map(c=>`<i class="cg" style="left:calc(${c.t*100/d}% - 4px)"></i>`).join(''):''}
+function renderChips(){['红','橙','黄','蓝'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join(''):''}
 $('#list').onclick=e=>{const g=e.target.dataset;if(g.g)jump(marks[g.g].t_ms/1000);if(g.e){const n=prompt('备注',marks[g.e].note);if(n!==null){marks[g.e].note=n;save();render()}}if(g.d&&confirm('删除这条？')){marks.splice(g.d,1);save();render()}};
 function md(){return `# 听稿标记：${key.slice(3)}\n共 ${marks.length} 处（时间 mm:ss.s）\n\n`+marks.map(m=>`- [ ] ${m.time} 【${m.color}·${m.tag}】${m.line?' '+m.line:''}${m.text?' 「'+m.text+'」':''}${m.note?' — '+m.note:''}`).join('\n')+(cls.length?`\n\n改过已听：${cls.filter(c=>c.done).length}/${cls.length}`:'')}
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(md());toast('已复制')}catch(e){prompt('长按全选复制',md())}};
