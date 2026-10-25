@@ -70,6 +70,9 @@ details summary{padding:8px 0;color:#9aa}
 .mk{color:#fff}.mk.c黄{color:#111}
 .mk.c灰{grid-column:span 4;width:auto;height:52px;min-height:52px!important;border-radius:26px!important;font-size:18px!important}
 #share{background:#f08c2b!important;font-size:22px!important;font-weight:800;min-height:64px}
+#lk{min-height:44px;font-size:16px;padding:6px 12px;border-radius:22px;background:#3a3f4b}
+#lk.un{background:#16a34a}
+#seek:disabled{opacity:.75}#seek:disabled::-webkit-slider-thumb{background:#9aa}
 </style></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
@@ -93,8 +96,8 @@ details summary{padding:8px 0;color:#9aa}
 </div>
 <div class="card">
  <div id="time">00:00.0 / 00:00</div>
- <div id="tlab"><span>现在</span><span>总长</span></div>
- <div id="bar"><div id="chips"></div><input id="seek" type="range" min="0" max="1000" value="0"></div>
+ <div id="tlab"><span>现在</span><button id="lk" class="lk">🔒 已锁定（点这里解锁拖动）</button><span>总长</span></div>
+ <div id="bar"><div id="chips"></div><input id="seek" disabled type="range" min="0" max="1000" value="0"></div>
  <div class="row" style="margin:8px 0"><button data-j="-15">-15</button><button data-j="-5">-5</button><button id="pp">▶ 播放</button><button data-j="5">+5</button><button data-j="15">+15</button></div>
  <div class="row"><button class="sp" data-s="0.8">0.8×</button><button class="sp on" data-s="1">1×</button><button class="sp" data-s="1.1">1.1×</button></div>
  <div id="clwrap" style="display:none;margin-top:10px"><div style="font-size:13px;color:#86efac">改过（点一下跳过去听）</div><div id="cl"></div></div>
@@ -175,4 +178,8 @@ render();
 <script>try{if(!LSOK)toast('此模式不能存，听完记得点复制/分享');if(!cls||!cls.length)loadCL(DEFAULT_CL)}catch(e){}</script><script>
 (async()=>{try{let v='EP01_latest';try{const r=await fetch('audio/version.txt?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
 const h=await fetch('audio/latest.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){setSrc('audio/latest.mp3?v='+encodeURIComponent(v),v)}}catch(e){}})();
+</script><script>
+(()=>{const b=document.getElementById('lk'),k=document.getElementById('seek');let t;
+const set=u=>{k.disabled=!u;b.classList.toggle('un',u);b.textContent=u?'🔓 可拖动（点这里锁定）':'🔒 已锁定（点这里解锁拖动）';clearTimeout(t);if(u)t=setTimeout(()=>set(false),15000)};
+b.onclick=()=>set(k.disabled);k.addEventListener('change',()=>{clearTimeout(t);t=setTimeout(()=>set(false),5000)});set(false)})();
 </script></body></html>
