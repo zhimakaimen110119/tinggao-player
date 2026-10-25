@@ -42,18 +42,49 @@ input[type=text],textarea{width:100%;background:#0f1115;color:#fff;border:1px so
 #list button{min-height:40px;padding:6px 10px;font-size:14px}
 details summary{padding:8px 0;color:#9aa}
 #toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#fff;color:#000;padding:10px 16px;border-radius:20px;display:none;z-index:9}
+
+.howto{background:#fff8e1;color:#222;font-size:20px;line-height:1.65}
+.howto .ht{font-size:26px;font-weight:800;margin-bottom:8px}
+.howto .st{display:flex;gap:10px;margin:10px 0}.howto .n{flex:none;width:36px;height:36px;border-radius:50%;background:#222;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.howto small{font-size:16px;color:#555}.howto .dt{display:inline-block;width:18px;height:18px;border-radius:50%;vertical-align:-3px;margin-right:6px}
+.howto .blue{color:#2563eb}.howto .org{color:#d9690b}.howto .opt{font-size:16px;color:#555;margin-top:6px}.howto .wei{font-size:14px;color:#999;margin-top:6px}
+#time{font-size:40px;font-weight:700}
+#tlab{display:flex;justify-content:space-between;font-size:18px;color:#aab;margin-top:2px}
+#bar{position:relative;height:72px;margin-top:4px}
+#seek{-webkit-appearance:none;appearance:none;width:100%;height:72px;margin:0;background:transparent;position:relative;z-index:2}
+#seek::-webkit-slider-runnable-track{height:22px;border-radius:11px;background:linear-gradient(90deg,#4a6cf7 var(--p,0%),#2d3340 var(--p,0%))}
+#seek::-webkit-slider-thumb{-webkit-appearance:none;width:38px;height:38px;border-radius:50%;background:#fff;margin-top:-8px;box-shadow:0 2px 8px #0008}
+#chips{top:50%;height:0;z-index:3}
+#chips i{width:14px!important;height:14px!important;border-radius:50%;top:-7px!important;border:2px solid #fff;bottom:auto!important}
+#chips i.cg{top:16px!important;width:12px!important;height:12px!important}
+#pp{width:96px;height:96px;flex:0 0 96px!important;border-radius:50%!important;font-size:30px!important;background:#2563eb!important;box-shadow:0 0 0 6px #2563eb44}
+.marks{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:8px;text-align:center}
+.mk{position:relative;width:74px;height:74px;min-height:74px!important;border-radius:50%!important;margin:0 auto;font-size:24px!important;font-weight:800;box-shadow:0 4px 0 #0006,inset 0 2px 0 #fff4;transition:transform .12s}
+.mk small{position:absolute;top:80px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:14px!important;color:#ddd}
+.mkw{padding-bottom:28px}
+.mk.hit{transform:scale(1.18);box-shadow:0 0 0 6px #fff,0 0 0 10px currentColor}
+.mk.hit::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px;background:#0007;border-radius:50%;color:#fff}
+.mk b.bd{position:absolute;top:-6px;right:-6px;min-width:28px;height:28px;border-radius:14px;background:#fff;color:#111;font-size:16px;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.mk b.bd:empty{display:none}
+.c红{background:#e5484d!important;color:#e5484d}.c橙{background:#f08c2b!important;color:#f08c2b}.c黄{background:#e3b505!important;color:#e3b505}.c蓝{background:#3b82f6!important;color:#3b82f6}
+.mk{color:#fff}.mk.c黄{color:#111}
+.mk.c灰{grid-column:span 4;width:auto;height:52px;min-height:52px!important;border-radius:26px!important;font-size:18px!important}
+#share{background:#f08c2b!important;font-size:22px!important;font-weight:800;min-height:64px}
 </style></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
-<div class="card" style="font-size:20px;line-height:1.7;background:#fffbe6;color:#222">
- <div style="font-size:24px;font-weight:bold;margin-bottom:6px">怎么用</div>
- <div>1. 点 <b>▶︎ 播放</b> 听</div>
- <div>2. 听到不对的地方，马上点颜色：<br>
- <span style="color:#d22;font-weight:bold">红</span>＝念错　<span style="color:#e67e00;font-weight:bold">橙</span>＝太快／停顿怪<br>
- <span style="color:#b59a00;font-weight:bold">黄</span>＝听不懂　<span style="color:#2a62d6;font-weight:bold">蓝</span>＝声音效果</div>
- <div>3. 听完点 <b>「分享」</b> → 选 <b>微信</b> 发给孩子<br>　或点 <b>「复制清单」</b>，粘贴到微信发过去</div>
- <div style="font-size:17px;opacity:.8">4.（可选）Safari 点分享 → 添加到主屏幕，以后一点就开</div>
- <div style="font-size:15px;opacity:.6;margin-top:6px">给 wei：换新版音频后刷新即可</div>
+<div class="card howto">
+ <div class="ht">👵 怎么用（只要三步）</div>
+ <div class="st"><span class="n">1</span><div>先点中间那个<b class="blue">蓝色大圆「▶ 播放」</b>，开始听。<br><small>声音小？按手机侧面的音量键。</small></div></div>
+ <div class="st"><span class="n">2</span><div>听见不对劲，<b>马上点下面的彩色圆钮</b>（不用停）：<br>
+  <span class="dt" style="background:#e5484d"></span><b>红</b>＝念错字<br>
+  <span class="dt" style="background:#f08c2b"></span><b>橙</b>＝太快、停得怪<br>
+  <span class="dt" style="background:#e3b505"></span><b>黄</b>＝听不懂<br>
+  <span class="dt" style="background:#3b82f6"></span><b>蓝</b>＝声音效果不好<br>
+  <small>例子：听到一个字念错了 → 点一下<b>红</b>。点错了就点「↶ 撤销」。</small></div></div>
+ <div class="st"><span class="n">3</span><div>听完了，<b>往下滑</b>，点<b class="org">橙色「发给孩子」</b> → 选<b>微信</b> → 选孩子 → 发送。<br><small>不会用？点「复制清单」，再到微信里长按「粘贴」发过去。</small></div></div>
+ <div class="opt">（可选）Safari 底部点分享 □↑ →「添加到主屏幕」，以后桌面一点就开。</div>
+ <div class="wei">给 wei：换新版音频后刷新即可</div>
 </div>
 <div class="card">
  <label class="btn" style="width:100%">🎧 选音频<input id="file" type="file" accept="audio/*,.mp3,.m4a,.wav" hidden></label>
@@ -62,21 +93,22 @@ details summary{padding:8px 0;color:#9aa}
 </div>
 <div class="card">
  <div id="time">00:00.0 / 00:00</div>
+ <div id="tlab"><span>现在</span><span>总长</span></div>
  <div id="bar"><div id="chips"></div><input id="seek" type="range" min="0" max="1000" value="0"></div>
- <div class="row" style="margin:8px 0"><button data-j="-15">-15</button><button data-j="-5">-5</button><button id="pp" style="flex:1.6;font-size:22px;background:#4a6cf7">▶︎</button><button data-j="5">+5</button><button data-j="15">+15</button></div>
+ <div class="row" style="margin:8px 0"><button data-j="-15">-15</button><button data-j="-5">-5</button><button id="pp">▶ 播放</button><button data-j="5">+5</button><button data-j="15">+15</button></div>
  <div class="row"><button class="sp" data-s="0.8">0.8×</button><button class="sp on" data-s="1">1×</button><button class="sp" data-s="1.1">1.1×</button></div>
  <div id="clwrap" style="display:none;margin-top:10px"><div style="font-size:13px;color:#86efac">改过（点一下跳过去听）</div><div id="cl"></div></div>
 </div>
-<div class="card marks">
- <button class="mk c红" data-c="红">红<small>念错</small></button>
- <button class="mk c橙" data-c="橙">橙<small>太快/停顿怪</small></button>
- <button class="mk c黄" data-c="黄">黄<small>听不懂</small></button>
- <button class="mk c蓝" data-c="蓝">蓝<small>音效</small></button>
+<div class="card marks mkw">
+ <button class="mk c红" data-c="红">红<b class="bd" id="bd红"></b><small>念错</small></button>
+ <button class="mk c橙" data-c="橙">橙<b class="bd" id="bd橙"></b><small>太快/停顿怪</small></button>
+ <button class="mk c黄" data-c="黄">黄<b class="bd" id="bd黄"></b><small>听不懂</small></button>
+ <button class="mk c蓝" data-c="蓝">蓝<b class="bd" id="bd蓝"></b><small>音效</small></button>
  <button class="mk c灰" data-c="灰">灰 · 备注</button>
 </div>
 <div class="card">
  <div class="row"><button id="undo">↶ 撤销</button><button id="copy">复制清单</button></div>
- <div class="row" style="margin-top:8px"><button id="share">分享</button><button id="json">下载JSON</button></div>
+ <div class="row" style="margin-top:8px"><button id="share">📤 发给孩子（微信）</button><button id="json">下载JSON</button></div>
  <div id="list"></div>
 </div>
 <div class="card"><details><summary>载入「改过」清单（JSON 或 Markdown）</summary>
@@ -103,14 +135,14 @@ $('#file').onchange=e=>{const f=e.target.files[0];if(f)setSrc(URL.createObjectUR
 $('#load').onclick=()=>{const u=$('#url').value.trim();if(u)setSrc(u,decodeURIComponent(u.split('/').pop().split('?')[0]))};
 const save=()=>{if(key)LS('',marks)};
 $('#pp').onclick=()=>au.paused?au.play():au.pause();
-au.onplay=au.onpause=()=>$('#pp').textContent=au.paused?'▶︎':'❚❚';
+au.onplay=au.onpause=()=>$('#pp').textContent=au.paused?'▶ 播放':'❚❚ 暂停';
 const jump=t=>{au.currentTime=Math.max(0,t);if(au.paused)au.play()};
 document.querySelectorAll('[data-j]').forEach(b=>b.onclick=()=>au.currentTime=Math.max(0,au.currentTime+ +b.dataset.j));
 document.querySelectorAll('.sp').forEach(b=>b.onclick=()=>{au.playbackRate=+b.dataset.s;document.querySelectorAll('.sp').forEach(x=>x.classList.toggle('on',x===b))});
 let drag=false;const sk=$('#seek');
-sk.oninput=()=>{drag=true;if(au.duration)$('#time').textContent=fmt(sk.value/1000*au.duration)+' / '+fmt(au.duration).slice(0,5)};
+sk.oninput=()=>{drag=true;sk.style.setProperty('--p',sk.value/10+'%');if(au.duration)$('#time').textContent=fmt(sk.value/1000*au.duration)+' / '+fmt(au.duration).slice(0,5)};
 sk.onchange=()=>{if(au.duration)au.currentTime=sk.value/1000*au.duration;drag=false};
-au.ontimeupdate=au.onloadedmetadata=()=>{if(!drag){sk.value=au.duration?au.currentTime/au.duration*1000:0;$('#time').textContent=fmt(au.currentTime)+' / '+fmt(au.duration).slice(0,5)}};
+au.ontimeupdate=au.onloadedmetadata=()=>{if(!drag){sk.value=au.duration?au.currentTime/au.duration*1000:0;sk.style.setProperty('--p',sk.value/10+'%');$('#time').textContent=fmt(au.currentTime)+' / '+fmt(au.duration).slice(0,5)}};
 au.addEventListener('loadedmetadata',renderChips);
 function ts(x){if(typeof x=='number')return x>10000?x/1000:x;const p=String(x).trim().replace(',','.').split(':').map(Number);return p.reduce((a,b)=>a*60+b,0)}
 function parseLines(raw){const out=[];
@@ -125,13 +157,13 @@ $('#clsave').onclick=()=>loadCL($('#clraw').value);
 $('#clfile').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(loadCL)};
 $('#cl').onclick=e=>{const i=e.target.closest('button')?.dataset.i;if(i==null)return;jump(Math.max(0,cls[i].t-2));cls[i].done=1;LS(':cl',cls);renderCL()};
 function nearest(t){let best=null;lines.forEach(l=>{if(l.t!=null&&l.t<=t+0.3&&(!best||l.t>best.t))best=l});return best}
-document.querySelectorAll('.mk').forEach(b=>b.onclick=()=>{if(!key)key='ep:EP01_v7';b.style.outline='4px solid #fff';setTimeout(()=>b.style.outline='',300);const t=au.currentTime,c=b.dataset.c,l=nearest(t);
+document.querySelectorAll('.mk').forEach(b=>b.onclick=()=>{if(!key)key='ep:EP01_v7';b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit');setTimeout(()=>b.classList.remove('hit'),450);const t=au.currentTime,c=b.dataset.c,l=nearest(t);
  const m={t_ms:Math.round(t*1000),time:fmt(t),color:c,tag:TAG[c],note:'',line:l?l.id:'',text:l?l.text:'',_c:Date.now()};marks.push(m);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();navigator.vibrate&&navigator.vibrate(30);toast(c+' '+m.time+(l?' '+l.id:''));
  if(c==='灰'){const n=(document.getElementById('note')||{}).value;if(n){m.note=n;document.getElementById('note').value='';save();render()}}});
 $('#undo').onclick=()=>{if(!marks.length)return;let i=marks.reduce((a,m,j)=>(m._c||0)>(marks[a]._c||0)?j:a,0);marks.splice(i,1);save();render();toast('已撤销')};
 function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改过 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.line?'['+m.line+'] ':''}${m.tag}${m.note?'：'+esc(m.note):''}</span><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
-function renderChips(){const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join('')+cls.map(c=>`<i class="cg" style="left:calc(${c.t*100/d}% - 4px)"></i>`).join(''):''}
+function renderChips(){['红','橙','黄','蓝'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join('')+cls.map(c=>`<i class="cg" style="left:calc(${c.t*100/d}% - 4px)"></i>`).join(''):''}
 $('#list').onclick=e=>{const g=e.target.dataset;if(g.g)jump(marks[g.g].t_ms/1000);if(g.e){const n=prompt('备注',marks[g.e].note);if(n!==null){marks[g.e].note=n;save();render()}}if(g.d&&confirm('删除这条？')){marks.splice(g.d,1);save();render()}};
 function md(){return `# 听稿标记：${key.slice(3)}\n共 ${marks.length} 处（时间 mm:ss.s）\n\n`+marks.map(m=>`- [ ] ${m.time} 【${m.color}·${m.tag}】${m.line?' '+m.line:''}${m.text?' 「'+m.text+'」':''}${m.note?' — '+m.note:''}`).join('\n')+(cls.length?`\n\n改过已听：${cls.filter(c=>c.done).length}/${cls.length}`:'')}
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(md());toast('已复制')}catch(e){prompt('长按全选复制',md())}};
@@ -139,7 +171,7 @@ $('#share').onclick=()=>navigator.share?navigator.share({title:'听稿标记',te
 $('#json').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({file:key.slice(3),exported:new Date().toISOString(),marks:marks.map(({_c,...m})=>m),changelog:cls},null,2)],{type:'application/json'}));a.download=key.slice(3).replace(/\.\w+$/,'')+'_marks.json';a.click()};
 render();
 </script><input id="note" placeholder="灰色备注先写这里再点灰" style="width:100%;font-size:18px;margin:8px 0">
-<style>.mk{min-height:64px;font-size:20px;touch-action:manipulation}.mk *{pointer-events:none}</style>
+<style>.mk{touch-action:manipulation}.mk *{pointer-events:none}</style>
 <script>try{if(!LSOK)toast('此模式不能存，听完记得点复制/分享');if(!cls||!cls.length)loadCL(DEFAULT_CL)}catch(e){}</script><script>
 (async()=>{try{let v='EP01_latest';try{const r=await fetch('audio/version.txt?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
 const h=await fetch('audio/latest.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){setSrc('audio/latest.mp3?v='+encodeURIComponent(v),v)}}catch(e){}})();
