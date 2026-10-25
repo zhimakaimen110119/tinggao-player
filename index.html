@@ -5,7 +5,7 @@
 2. 在「文件」里点本 HTML（或分享→用 Safari 打开），点「选音频」选那个 mp3。
 3. 听到问题就点颜色键：红=念错 橙=太快 黄=文案/听感 蓝=音效👎 灰=备注。
 4. （仅制作者用）页面最下方「显示本版改动」展开后，绿色标签=上一版以来改动处，点一下直接跳去听；列表可写备注/删除，自动存本机。
-5. 听完点「分享」或「复制清单」发回给 Grok Bot（时间精确到 mm:ss.s）；也可下载 JSON。
+5. 听完点「分享」或「复制清单」发回给 Grok Bot（时间精确到 mm:ss.s）。
 -->
 <html lang="zh"><head><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="听稿"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -72,7 +72,7 @@ details summary{padding:8px 0;color:#9aa}
 .c红{background:#e5484d!important;color:#e5484d}.c橙{background:#f08c2b!important;color:#f08c2b}.c黄{background:#e3b505!important;color:#e3b505}.c蓝{background:#3b82f6!important;color:#3b82f6}
 .mk{color:#fff}.mk.c黄{color:#111}
 .mk.c灰{grid-column:1/-1;margin-top:4px;width:auto;height:52px;min-height:52px!important;border-radius:26px!important;font-size:18px!important}
-#share{background:#f08c2b!important;font-size:22px!important;font-weight:800;min-height:64px}
+#share{background:#f08c2b!important;font-size:26px!important;font-weight:800;min-height:80px;width:100%;border-radius:16px}
 #lk{min-height:44px;font-size:16px;padding:6px 12px;border-radius:22px;background:#3a3f4b}
 #lk.un{background:#16a34a}
 #seek:disabled{opacity:.75}#seek:disabled::-webkit-slider-thumb{background:#9aa}
@@ -124,7 +124,7 @@ details summary{padding:8px 0;color:#9aa}
 </div>
 <div class="card">
  <div class="row"><button id="undo">↶ 撤销</button><button id="copy">复制清单</button></div>
- <div class="row" style="margin-top:8px"><button id="share">📤 发送</button><button id="json">下载JSON</button></div>
+ <div class="row" style="margin-top:8px"><button id="share">📤 发送</button></div>
  <div id="list"></div>
 </div>
 
@@ -189,7 +189,6 @@ $('#list').onclick=e=>{const g=e.target.dataset;if(g.g)jump(marks[g.g].t_ms/1000
 function md(){return `# 听稿标记：${key.slice(3)}\n共 ${marks.length} 处（时间 mm:ss.s）\n\n`+marks.map(m=>`- [ ] ${m.time} 【${m.color}·${m.tag}】${m.line?' '+m.line:''}${m.text?' 「'+m.text+'」':''}${m.note?' — '+m.note:''}`).join('\n')+(cls.length?`\n\n改过已听：${cls.filter(c=>c.done).length}/${cls.length}`:'')}
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(md());toast('已复制')}catch(e){prompt('长按全选复制',md())}};
 $('#share').onclick=()=>navigator.share?navigator.share({title:'听稿标记',text:md()}).catch(()=>{}):$('#copy').onclick();
-$('#json').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({file:key.slice(3),exported:new Date().toISOString(),marks:marks.map(({_c,...m})=>m),changelog:cls},null,2)],{type:'application/json'}));a.download=key.slice(3).replace(/\.\w+$/,'')+'_marks.json';a.click()};
 render();
 </script><style>#nmQ{display:flex;flex-wrap:wrap;gap:14px 12px;justify-content:center;max-height:36vh;overflow:auto;padding:6px 2px 10px}#nmQ .q{font-size:19px;font-weight:600;padding:13px 20px;border-radius:999px;border:2px solid #e2e5ec;background:linear-gradient(#fff,#f2f4f8);color:#2b2f38;box-shadow:0 2px 6px rgba(0,0,0,.08);transition:transform .1s,background .15s}#nmQ .q:active{transform:scale(.94)}#nmQ .q.on,#nmQ .q[aria-pressed=true]{background:linear-gradient(#5b8cff,#3a6df0)!important;color:#fff!important;border-color:#3a6df0!important;box-shadow:0 3px 10px rgba(58,109,240,.4)}</style><div id="nm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:16px"><div style="background:#fff;color:#222;border-radius:16px;padding:20px;max-height:92vh;overflow:auto;width:100%;max-width:420px;box-sizing:border-box"><div style="font-size:22px;font-weight:700;margin-bottom:6px">这里你想说什么？有什么意见？</div><div style="color:#666;font-size:16px;margin-bottom:10px">已暂停在 <b id="nmT"></b></div><textarea id="nmI" rows="5" style="width:100%;min-height:120px;box-sizing:border-box;font-size:19px;padding:10px;border:2px solid #999;border-radius:10px" placeholder="直接打字或按麦克风说话"></textarea><div style="color:#666;font-size:15px;margin:10px 0 6px">快速选（可多选）：</div><div id="nmQ"><button type="button" class="q">念错</button><button type="button" class="q">多音字</button><button type="button" class="q">太快</button><button type="button" class="q">太慢</button><button type="button" class="q">停顿怪</button><button type="button" class="q">听不清</button><button type="button" class="q">听不懂</button><button type="button" class="q">音效太大</button><button type="button" class="q">音效太小</button><button type="button" class="q">音效不对</button><button type="button" class="q">人名听不清</button><button type="button" class="q">年份念糊</button><button type="button" class="q">留白太短</button><button type="button" class="q">留白太长</button><button type="button" class="q">重复</button><button type="button" class="q">串音</button><button type="button" class="q">结尾干</button></div><div style="display:flex;gap:12px;margin-top:14px"><button id="nmC" style="flex:1;font-size:20px;padding:14px;border-radius:12px;border:0;background:#ddd">取消</button><button id="nmS" style="flex:1;font-size:20px;padding:14px;border-radius:12px;border:0;background:#888;color:#fff;font-weight:700">保存</button></div></div></div>
 <script>document.getElementById('nmQ').onclick=e=>{const b=e.target.closest('.q');if(!b)return;const i=document.getElementById('nmI');const v=i.value.trim();i.value=v?(v+'、'+b.textContent):b.textContent;b.classList.add('on')};document.getElementById('nmC').onclick=()=>{document.getElementById('nm').style.display='none'};document.getElementById('nmS').onclick=()=>{const n=document.getElementById('nmI').value.trim();const m=addMark('灰',noteT,n);document.getElementById('nm').style.display='none';navigator.vibrate&&navigator.vibrate(30);toast('灰 '+m.time+' 备注已保存')};</script>
