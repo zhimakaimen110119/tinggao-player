@@ -121,10 +121,12 @@ details summary{padding:8px 0;color:#9aa}
 <div id="clwrap" style="display:none;margin-top:10px"><div style="font-size:13px;color:#86efac">本版改动点（时间＋说明，点一下跳过去听）</div><div id="cl"></div></div>
 <details style="margin-top:8px"><summary>载入本版改动点清单</summary>
  <textarea id="clraw" rows="5" placeholder='[{"t":"15:32.0","label":"背抵着柱子 bèi","version":"v7"}]&#10;或每行：- 15:32.0 背抵着柱子 (v7)'></textarea>
- <div class="row" style="margin-top:8px"><button id="clsave">保存改过清单</button><label class="btn">选文件<input id="clfile" type="file" accept=".json,.md,.txt,application/json,text/*" hidden></label></div></details>
+ <div class="row" style="margin-top:8px"><button id="clsave">保存改动点清单</button><label class="btn">选文件<input id="clfile" type="file" accept=".json,.md,.txt,application/json,text/*" hidden></label></div></details>
 <details><summary>可选：粘贴 SRT 或 r001|时间|句子 行表（标记自动带句号）</summary>
  <textarea id="lines" rows="5" placeholder="r001|00:01.2|第一句…  或标准 SRT"></textarea>
- <button id="saveLines" style="width:100%;margin-top:8px">保存行表</button></details><<script>
+ <button id="saveLines" style="width:100%;margin-top:8px">保存行表</button></details>
+</details>
+<script>
 const $=s=>document.querySelector(s),au=$('#au');
 const TAG={红:'念错',橙:'太快/停顿怪',黄:'文案/听感',蓝:'音效',灰:'备注'};
 const COL={红:'#d93a3a',橙:'#e8822a',黄:'#d9b520',蓝:'#2f7be0',灰:'#6b7280'};
