@@ -4,7 +4,7 @@
 1. 把本 HTML 和 mp3 一起 AirDrop 到 iPhone，存进「文件」App 同一文件夹。
 2. 在「文件」里点本 HTML（或分享→用 Safari 打开），点「选音频」选那个 mp3。
 3. 听到问题就点颜色键：红=念错 橙=太快/停顿怪 黄=文案/听感 蓝=音效 灰=备注。
-4. 绿色「改过」标签=上一版以来改动处，点一下直接跳去听；列表可写备注/删除，自动存本机。
+4. （仅制作者用）页面最下方「显示本版改动」展开后，绿色标签=上一版以来改动处，点一下直接跳去听；列表可写备注/删除，自动存本机。
 5. 听完点「分享」或「复制清单」发回给 Grok Bot（时间精确到 mm:ss.s）；也可下载 JSON。
 -->
 <html lang="zh"><head><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="听稿"><meta charset="utf-8">
@@ -100,7 +100,7 @@ details summary{padding:8px 0;color:#9aa}
  <div id="bar"><div id="chips"></div><input id="seek" disabled type="range" min="0" max="1000" value="0"></div>
  <div class="row" style="margin:8px 0"><button data-j="-15">-15</button><button data-j="-5">-5</button><button id="pp">▶ 播放</button><button data-j="5">+5</button><button data-j="15">+15</button></div>
  <div class="row"><button class="sp" data-s="0.8">0.8×</button><button class="sp on" data-s="1">1×</button><button class="sp" data-s="1.1">1.1×</button></div>
- <div id="clwrap" style="display:none;margin-top:10px"><div style="font-size:13px;color:#86efac">改过（点一下跳过去听）</div><div id="cl"></div></div>
+
 </div>
 <div class="card marks mkw">
  <button class="mk c红" data-c="红">红<b class="bd" id="bd红"></b><small>念错</small></button>
@@ -114,15 +114,17 @@ details summary{padding:8px 0;color:#9aa}
  <div class="row" style="margin-top:8px"><button id="share">📤 发送</button><button id="json">下载JSON</button></div>
  <div id="list"></div>
 </div>
-<div class="card"><details><summary>载入「改过」清单（JSON 或 Markdown）</summary>
+
+<audio id="au" preload="metadata" playsinline></audio>
+<div id="toast"></div>
+<details id="advcl" style="margin:24px 0 12px;font-size:12px;color:#888"><summary style="opacity:.6">显示本版改动（高级）</summary>
+<div id="clwrap" style="display:none;margin-top:10px"><div style="font-size:13px;color:#86efac">本版改动点（时间＋说明，点一下跳过去听）</div><div id="cl"></div></div>
+<details style="margin-top:8px"><summary>载入本版改动点清单</summary>
  <textarea id="clraw" rows="5" placeholder='[{"t":"15:32.0","label":"背抵着柱子 bèi","version":"v7"}]&#10;或每行：- 15:32.0 背抵着柱子 (v7)'></textarea>
  <div class="row" style="margin-top:8px"><button id="clsave">保存改过清单</button><label class="btn">选文件<input id="clfile" type="file" accept=".json,.md,.txt,application/json,text/*" hidden></label></div></details>
 <details><summary>可选：粘贴 SRT 或 r001|时间|句子 行表（标记自动带句号）</summary>
  <textarea id="lines" rows="5" placeholder="r001|00:01.2|第一句…  或标准 SRT"></textarea>
- <button id="saveLines" style="width:100%;margin-top:8px">保存行表</button></details></div>
-<audio id="au" preload="metadata" playsinline></audio>
-<div id="toast"></div>
-<script>
+ <button id="saveLines" style="width:100%;margin-top:8px">保存行表</button></details><<script>
 const $=s=>document.querySelector(s),au=$('#au');
 const TAG={红:'念错',橙:'太快/停顿怪',黄:'文案/听感',蓝:'音效',灰:'备注'};
 const COL={红:'#d93a3a',橙:'#e8822a',黄:'#d9b520',蓝:'#2f7be0',灰:'#6b7280'};
@@ -155,7 +157,7 @@ function parseLines(raw){const out=[];
 $('#saveLines').onclick=()=>{const raw=$('#lines').value;lines=parseLines(raw);if(key){LS(':lines',lines);LS(':raw',raw)}toast('行表 '+lines.length+' 行')};
 function parseCL(raw){raw=raw.trim();try{let j=JSON.parse(raw);if(!Array.isArray(j))j=j.markers||j.changes||[];return j.map(o=>({t:ts(o.t_ms!=null?o.t_ms/1000:o.t),label:o.label||o.text||'',version:o.version||''}))}catch(e){}
  const out=[];raw.split('\n').forEach(l=>{const m=l.match(/(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?)\s*[|｜:：\-—]?\s*(.*)/);if(!m)return;let label=m[2].trim(),v='';const vm=label.match(/[（(\[]?\b(v\d+[\w.]*)\b[)）\]]?/i);if(vm){v=vm[1];label=label.replace(vm[0],'').trim()}out.push({t:ts(m[1]),label:label.replace(/^[|｜\-—:：\s]+/,''),version:v})});return out}
-function loadCL(raw){if(!key)key='ep:EP01_v7';cls=parseCL(raw).sort((a,b)=>a.t-b.t);LS(':cl',cls);LS(':clraw',raw);$('#clraw').value=raw;render();toast('改过 '+cls.length+' 处')}
+function loadCL(raw){if(!key)key='ep:EP01_v7';cls=parseCL(raw).sort((a,b)=>a.t-b.t);LS(':cl',cls);LS(':clraw',raw);$('#clraw').value=raw;render();toast('本版改动 '+cls.length+' 处')}
 $('#clsave').onclick=()=>loadCL($('#clraw').value);
 $('#clfile').onchange=e=>{const f=e.target.files[0];if(f)f.text().then(loadCL)};
 $('#cl').onclick=e=>{const i=e.target.closest('button')?.dataset.i;if(i==null)return;jump(Math.max(0,cls[i].t-2));cls[i].done=1;LS(':cl',cls);renderCL()};
@@ -164,7 +166,7 @@ document.querySelectorAll('.mk').forEach(b=>b.onclick=()=>{if(!key)key='ep:EP01_
  const m={t_ms:Math.round(t*1000),time:fmt(t),color:c,tag:TAG[c],note:'',line:l?l.id:'',text:l?l.text:'',_c:Date.now()};marks.push(m);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();navigator.vibrate&&navigator.vibrate(30);toast(c+' '+m.time+(l?' '+l.id:''));
  if(c==='灰'){const n=(document.getElementById('note')||{}).value;if(n){m.note=n;document.getElementById('note').value='';save();render()}}});
 $('#undo').onclick=()=>{if(!marks.length)return;let i=marks.reduce((a,m,j)=>(m._c||0)>(marks[a]._c||0)?j:a,0);marks.splice(i,1);save();render();toast('已撤销')};
-function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改过 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
+function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改动 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.line?'['+m.line+'] ':''}${m.tag}${m.note?'：'+esc(m.note):''}</span><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
 function renderChips(){['红','橙','黄','蓝'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join('')+cls.map(c=>`<i class="cg" style="left:calc(${c.t*100/d}% - 4px)"></i>`).join(''):''}
 $('#list').onclick=e=>{const g=e.target.dataset;if(g.g)jump(marks[g.g].t_ms/1000);if(g.e){const n=prompt('备注',marks[g.e].note);if(n!==null){marks[g.e].note=n;save();render()}}if(g.d&&confirm('删除这条？')){marks.splice(g.d,1);save();render()}};
@@ -178,7 +180,8 @@ render();
 <script>try{if(!LSOK)toast('此模式不能存，听完记得点复制/分享');if(!cls||!cls.length)loadCL(DEFAULT_CL)}catch(e){}</script><script>
 (async()=>{try{let v='EP01_latest';try{const r=await fetch('audio/version.txt?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
 const h=await fetch('audio/latest.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){setSrc('audio/latest.mp3?v='+encodeURIComponent(v),v)}}catch(e){}})();
-</script><script>
+</script>/details>
+<script>
 (()=>{const b=document.getElementById('lk'),k=document.getElementById('seek');let t;
 const set=u=>{k.disabled=!u;b.classList.toggle('un',u);b.textContent=u?'🔓 可拖动（点这里锁定）':'🔒 已锁定（点这里解锁拖动）';clearTimeout(t);if(u)t=setTimeout(()=>set(false),15000)};
 b.onclick=()=>set(k.disabled);k.addEventListener('change',()=>{clearTimeout(t);t=setTimeout(()=>set(false),5000)});set(false)})();
