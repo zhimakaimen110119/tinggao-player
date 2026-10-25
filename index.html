@@ -83,7 +83,8 @@ details summary{padding:8px 0;color:#9aa}
 @keyframes pop{from{transform:scale(.9);opacity:0}}
 .hx{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;font-size:20px;background:#0002}
 .hok{width:100%;min-height:56px;margin-top:12px;border:0;border-radius:28px;background:#16a34a;color:#fff;font-size:22px;font-weight:800}
-</style></head><body>
+
+.lg.on{background:#f97316!important;color:#fff!important}</style></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
 <button id="howBtn" type="button" onclick="document.getElementById('howM').classList.add('on')">❓ 怎么用？<small>点我看三步说明</small></button>
@@ -103,6 +104,7 @@ details summary{padding:8px 0;color:#9aa}
  <button type="button" class="hok" onclick="document.getElementById('howM').classList.remove('on')">知道了 👍</button>
 </div></div>
 <div class="card">
+ <div class="row" id="langsw" style="margin-bottom:8px"><button type="button" id="lzh" class="lg on" onclick="pickLang('zh')" style="font-size:18px;padding:12px">🇨🇳 中文版</button><button type="button" id="len" class="lg" onclick="pickLang('en')" style="font-size:18px;padding:12px">🇺🇸 英文版</button></div>
  <label class="btn" style="width:100%">🎧 选音频<input id="file" type="file" accept="audio/*,.mp3,.m4a,.wav" hidden></label>
  <details><summary>或粘贴网址/相对路径</summary><div class="row"><input id="url" type="text" placeholder="https://… 或 EP01_v7.mp3"><button id="load" style="flex:0 0 80px">载入</button></div></details>
  <div id="name">未选择音频</div>
@@ -150,7 +152,7 @@ const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';clea
 const MEM={};let LSOK=true;try{localStorage.setItem('_t','1');localStorage.removeItem('_t')}catch(e){LSOK=false}
 const LS=(k,v)=>{const K=(key||'ep:EP01_v7')+k;if(v===undefined){try{return JSON.parse((LSOK?localStorage[K]:MEM[K])||'null')}catch(e){return null}}const j=JSON.stringify(v);try{if(LSOK)localStorage[K]=j;else MEM[K]=j}catch(e){LSOK=false;MEM[K]=j}};
 const DEFAULT_CL='[\n  {\n    "t": "15:32.0",\n    "label": "背→bèi（背抵着柱子）",\n    "version": "v7"\n  },\n  {\n    "t": "16:51.0",\n    "label": "公元前二百二十二年",\n    "version": "v7"\n  },\n  {\n    "t": "17:23.0",\n    "label": "皇帝·铜钟收束",\n    "version": "v7"\n  }\n]';
-function setSrc(src,name){au.src=src;key='qa:'+name;$('#name').textContent=name;marks=LS('')||[];lines=LS(':lines')||[];cls=LS(':cl')||[];if(!cls.length)setTimeout(()=>loadCL(DEFAULT_CL));$('#lines').value=LS(':raw')||'';$('#clraw').value=LS(':clraw')||'';render()}
+function setSrc(src,name){au.src=src;key='qa:'+name;$('#name').textContent=name;marks=LS('')||[];lines=LS(':lines')||[];cls=LS(':cl')||[];if(!cls.length)setTimeout(()=>loadCL(window.CUR_CL||DEFAULT_CL));$('#lines').value=LS(':raw')||'';$('#clraw').value=LS(':clraw')||'';render()}
 $('#file').onchange=e=>{const f=e.target.files[0];if(f)setSrc(URL.createObjectURL(f),f.name)};
 $('#load').onclick=()=>{const u=$('#url').value.trim();if(u)setSrc(u,decodeURIComponent(u.split('/').pop().split('?')[0]))};
 const save=()=>{if(key)LS('',marks)};
@@ -194,8 +196,11 @@ render();
 <script>document.getElementById('nmQ').onclick=e=>{const b=e.target.closest('.q');if(!b)return;const i=document.getElementById('nmI');const v=i.value.trim();i.value=v?(v+'、'+b.textContent):b.textContent;b.classList.add('on')};document.getElementById('nmC').onclick=()=>{document.getElementById('nm').style.display='none'};document.getElementById('nmS').onclick=()=>{const n=document.getElementById('nmI').value.trim();const m=addMark('灰',noteT,n);document.getElementById('nm').style.display='none';navigator.vibrate&&navigator.vibrate(30);toast('灰 '+m.time+' 备注已保存')};</script>
 <style>.mk{touch-action:manipulation}.mk *{pointer-events:none}</style>
 <script>try{if(!LSOK)toast('此模式不能存，听完记得点复制/分享');if(!cls||!cls.length)loadCL(DEFAULT_CL)}catch(e){}</script><script>
-(async()=>{try{let v='EP01_latest';try{const r=await fetch('audio/version.txt?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
-const h=await fetch('audio/latest.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){setSrc('audio/latest.mp3?v='+encodeURIComponent(v),v)}}catch(e){}})();
+const EN_CL='[{"t": "00:00.9", "label": "227 BC 开场", "version": "EN v1"}, {"t": "12:29.3", "label": "Rrrip 断袖", "version": "EN v1"}, {"t": "14:59.0", "label": "荆轲遗言（他自己的说法）", "version": "EN v1"}, {"t": "16:33.7", "label": "222 BC Yan fell", "version": "EN v1"}, {"t": "16:42.2", "label": "Six years", "version": "EN v1"}, {"t": "17:07.5", "label": "Emperor·收束", "version": "EN v1"}]';
+async function pickLang(lg){try{const f=lg==='en'?'latest_en':'latest',vf=lg==='en'?'version_en.txt':'version.txt';let v=lg==='en'?'EP01_EN_latest':'EP01_latest';try{const r=await fetch('audio/'+vf+'?'+Date.now());if(r.ok)v=(await r.text()).trim()}catch(e){}
+window.CUR_CL=lg==='en'?EN_CL:DEFAULT_CL;document.getElementById('lzh').classList.toggle('on',lg==='zh');document.getElementById('len').classList.toggle('on',lg==='en');try{localStorage.setItem('tg:lang',lg)}catch(e){}
+const h=await fetch('audio/'+f+'.mp3',{method:'HEAD',cache:'no-store'});if(h.ok&&typeof setSrc==='function'){au.pause();setSrc('audio/'+f+'.mp3?v='+encodeURIComponent(v),v)}else toast('这个语言的音频还没上传')}catch(e){}}
+(()=>{let lg='zh';try{lg=localStorage.getItem('tg:lang')||'zh'}catch(e){}pickLang(lg)})();
 </script>/details>
 <script>
 (()=>{const b=document.getElementById('lk'),k=document.getElementById('seek');let t;
