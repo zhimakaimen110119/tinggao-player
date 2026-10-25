@@ -95,6 +95,13 @@ details summary{padding:8px 0;color:#9aa}
 #snipB .sl.cur{background:#3a2a10;color:#fff;font-weight:700;border-left:5px solid #f97316}
 #snipB .sl.pick{outline:2px solid #22c55e}#snipB .sl i{font-style:normal;font-size:12px;color:#889;margin-right:6px}
 #snipF{font-size:13px;color:#778;margin-top:6px}
+#snipW{display:none;margin-top:10px;padding:10px;background:#1a1e26;border-radius:12px;border:1px solid #333}
+#snipW .wh{font-size:14px;color:#9aa;margin-bottom:8px}
+#snipW .wc{display:flex;flex-wrap:wrap;gap:6px}
+#snipW .ch{font-size:20px;line-height:1.2;padding:8px 10px;border-radius:10px;border:2px solid #3a4150;background:#252a34;color:#e8eaef;min-width:1.4em;text-align:center}
+#snipW .ch.on{background:#f59e0b;border-color:#f59e0b;color:#111;font-weight:700}
+#snipOK{width:100%;margin-top:10px;font-size:20px;font-weight:700;padding:14px;border:0;border-radius:14px;background:#22c55e;color:#fff}
+#snipOK:disabled{opacity:.45}
 </style><script>try{if(localStorage.getItem("tg_hideHow")==="1")document.write("<style>#howBtn{display:none!important}</style>")}catch(e){}</script></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点分享发给我</div>
@@ -109,7 +116,7 @@ details summary{padding:8px 0;color:#9aa}
   <span class="dt" style="background:#f08c2b"></span><b>语速语调</b>＝太快、太慢、停得怪、语调突然跳<br>
   <span class="dt" style="background:#e3b505"></span><b>听不懂</b>＝没听明白<br>
   <span class="dt" style="background:#3b82f6"></span><b>音效👎</b>＝声音效果不好<br>
-  <small>点错了就点「↶ 撤销」。彩色钮只记标签；灰色能写清楚。</small></div></div>
+  <small>点错了就点「↶ 撤销」。标颜色后可对原文：先选句、再点具体字词、最后绿色✓确认。</small></div></div>
  <div class="st"><span class="n">3</span><div>听完了，<b>往下滑</b>，点<b class="org">橙色「发送」</b> → 选<b>微信</b> → 选人 → 发送。<br><small>不会用？点「复制清单」，再到微信里长按「粘贴」发过去。</small></div></div>
  <div class="opt">（可选）Safari 底部点分享 □↑ →「添加到主屏幕」，以后桌面一点就开。</div>
  <div class="wei">给 wei：换新版音频后刷新即可</div>
@@ -138,7 +145,7 @@ details summary{padding:8px 0;color:#9aa}
  <div class="mkc"><button class="mk c蓝" data-c="蓝">音效👎<b class="bd" id="bd蓝"></b></button></div>
  <button class="mk c灰" data-c="灰">✎ 备注（写字说明）</button>
 </div>
-<div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipF">点上面某一句 = 把这条标记对到那句</div><div id="snipN" style="display:flex;gap:8px;margin-top:8px"><button type="button" data-d="-1000">◀ 早1秒</button><button type="button" data-d="-300">早0.3</button><button type="button" data-d="300">晚0.3</button><button type="button" data-d="1000">晚1秒 ▶</button></div></div>
+<div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipW"><div class="wh">再点具体字／词（可连点一段），然后打勾确认</div><div class="wc" id="snipWC"></div></div><div id="snipF">① 选句子 ② 点字词 ③ 绿色 ✓ 确认</div><div id="snipN" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button type="button" data-d="-1000">◀ 早1秒</button><button type="button" data-d="-300">早0.3</button><button type="button" data-d="300">晚0.3</button><button type="button" data-d="1000">晚1秒 ▶</button></div><button type="button" id="snipOK" disabled>✓ 确认标注</button></div>
 <div class="card">
  <div class="row"><button id="undo">↶ 撤销</button><button id="copy">复制清单</button></div>
  <div class="row" style="margin-top:8px"><button id="share">📤 发送</button></div>
@@ -203,7 +210,7 @@ function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl'
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.line?'['+m.line+'] ':''}${m.tag}${m.note?'：'+esc(m.note):''}</span><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
 function renderChips(){['红','橙','黄','蓝'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join(''):''}
 $('#list').onclick=e=>{const g=e.target.dataset;if(g.g)jump(marks[g.g].t_ms/1000);if(g.e){const n=prompt('备注',marks[g.e].note);if(n!==null){marks[g.e].note=n;save();render()}}if(g.d&&confirm('删除这条？')){marks.splice(g.d,1);save();render()}};
-function md(){return `# 听稿标记：${key.slice(3)}\n共 ${marks.length} 处（时间 mm:ss.s）\n\n`+marks.map(m=>`- [ ] ${m.time} 【${m.color}·${m.tag}】${m.line?' '+m.line:''}${m.text?' 「'+m.text+'」':''}${m.note?' — '+m.note:''}`).join('\n')+(cls.length?`\n\n改过已听：${cls.filter(c=>c.done).length}/${cls.length}`:'')}
+function md(){return `# 听稿标记：${key.slice(3)}\n共 ${marks.length} 处（时间 mm:ss.s）\n\n`+marks.map(m=>`- [ ] ${m.time} 【${m.color}·${m.tag}】${m.line?' '+m.line:''}${m.span?' ⚑「'+m.span+'」':(m.text?' 「'+m.text+'」':'')}${m.note?' — '+m.note:''}`).join('\n')+(cls.length?`\n\n改过已听：${cls.filter(c=>c.done).length}/${cls.length}`:'')}
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(md());toast('已复制')}catch(e){prompt('长按全选复制',md())}};
 $('#share').onclick=()=>navigator.share?navigator.share({title:'听稿标记',text:md()}).catch(()=>{}):$('#copy').onclick();
 render();
@@ -229,18 +236,26 @@ let lg='zh';try{lg=localStorage.getItem('tg:lang')||'zh';CUR_EP=localStorage.get
 const set=u=>{k.disabled=!u;b.classList.toggle('un',u);b.textContent=u?'🔓 可拖动（点这里锁定）':'🔒 已锁定（点这里解锁拖动）';clearTimeout(t);if(u)t=setTimeout(()=>set(false),15000)};
 b.onclick=()=>set(k.disabled);k.addEventListener('change',()=>{clearTimeout(t);t=setTimeout(()=>set(false),5000)});set(false)})();
 </script><script>
-(()=>{let TR=null,TRsrc='',lastM=null;const E=x=>document.getElementById(x);
+(()=>{let TR=null,TRsrc='',lastM=null,pendingK=null,pendingSegs=null,charSel=new Set();const E=x=>document.getElementById(x);
 async function getTR(){const u=(au.currentSrc||au.src||'').split('?')[0];if(u===TRsrc)return TR;TRsrc=u;TR=null;
  const m=u.match(/audio\/([^/]+)\.mp3$/);if(!m)return null;try{const r=await fetch('audio/'+m[1]+'.tr.json?'+Date.now());if(r.ok)TR=await r.json()}catch(e){}return TR}
 function esc2(t){return String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
-window.showSnip=async function(m){lastM=m;const box=E('snip');box.style.display='block';box.style.borderColor=COL[m.color]||'#444';const t=m.t_ms/1000;const tr=await getTR();
- const segs=tr&&(tr.segments||tr);if(!segs||!segs.length){E('snipH').textContent=m.color+' '+m.time+' · 这版音频还没有带时间的原文';E('snipB').innerHTML='';E('snipF').textContent='标记已记下时间，照常用';return}
+function charsOf(s){return Array.from(String(s||'').trim())}
+function renderChars(text){const box=E('snipWC');const arr=charsOf(text);box.innerHTML=arr.map((c,i)=>`<button type="button" class="ch${charSel.has(i)?' on':''}" data-i="${i}">${esc2(c===' '?'␣':c)}</button>`).join('');E('snipW').style.display=arr.length?'block':'none';E('snipOK').disabled=false}
+function selectedSpan2(text){const arr=charsOf(text);if(!charSel.size)return '';const lo=Math.min(...charSel),hi=Math.max(...charSel);return arr.slice(lo,hi+1).join('')}
+window.showSnip=async function(m){lastM=m;pendingK=null;charSel=new Set();const box=E('snip');box.style.display='block';box.style.borderColor=COL[m.color]||'#444';const t=m.t_ms/1000;const tr=await getTR();
+ const segs=tr&&(tr.segments||tr);if(!segs||!segs.length){E('snipH').textContent=m.color+' '+m.time+' · 这版音频还没有带时间的原文';E('snipB').innerHTML='';E('snipW').style.display='none';E('snipF').textContent='标记已记下时间，照常用';E('snipOK').disabled=true;return}
  let ci=segs.findIndex(s=>s.start<=t+0.3&&t<s.end+0.6);if(ci<0){ci=0;segs.forEach((s,i)=>{if(s.start<=t)ci=i})}
- const a=Math.max(0,ci-2),b=Math.min(segs.length,ci+2);m.text=segs[ci].text.trim();m.line=segs[ci].id||'';save();render();
+ const a=Math.max(0,ci-2),b=Math.min(segs.length,ci+2);pendingSegs=segs;pendingK=ci;
  E('snipH').textContent='是这吗？ '+m.color+' '+m.time+' 附近原文'+(tr.note?'（'+tr.note+'）':'');
- E('snipB').innerHTML=segs.slice(a,b).map((s,k)=>`<button type="button" class="sl${a+k===ci?' cur pick':''}" data-k="${a+k}"><i>${fmt(s.start)}</i>${esc2(s.text.trim())}</button>`).join('');E('snipF').textContent='不对？点对的那句，或用下面按钮微调时间'};
+ E('snipB').innerHTML=segs.slice(a,b).map((s,k)=>`<button type="button" class="sl${a+k===ci?' cur pick':''}" data-k="${a+k}"><i>${fmt(s.start)}</i>${esc2(s.text.trim())}</button>`).join('');
+ E('snipF').textContent='① 选句子 ② 点字词 ③ 绿色 ✓ 确认';
+ renderChars(segs[ci].text);
+};
 E('snipN').onclick=e=>{const b=e.target.closest('button');if(!b||!lastM)return;lastM.t_ms=Math.max(0,lastM.t_ms+(+b.dataset.d));lastM.time=fmt(lastM.t_ms/1000);marks.sort((a,b)=>a.t_ms-b.t_ms);save();render();navigator.vibrate&&navigator.vibrate(10);showSnip(lastM)};
-E('snipB').onclick=e=>{const b=e.target.closest('.sl');if(!b||!lastM)return;const s=(TR.segments||TR)[+b.dataset.k];lastM.text=s.text.trim();lastM.line=s.id||'';save();render();document.querySelectorAll('#snipB .sl').forEach(x=>x.classList.toggle('pick',x===b));navigator.vibrate&&navigator.vibrate(15);toast('已对到：'+lastM.text.slice(0,12))};
+E('snipB').onclick=e=>{const b=e.target.closest('.sl');if(!b||!lastM||!pendingSegs)return;pendingK=+b.dataset.k;charSel=new Set();document.querySelectorAll('#snipB .sl').forEach(x=>x.classList.toggle('pick',x===b));renderChars(pendingSegs[pendingK].text);navigator.vibrate&&navigator.vibrate(8);toast('已选句，再点具体字')};
+E('snipWC').onclick=e=>{const b=e.target.closest('.ch');if(!b)return;const i=+b.dataset.i;if(charSel.has(i))charSel.delete(i);else charSel.add(i);/* fill range if two endpoints */if(charSel.size===2){const [x,y]=[...charSel].sort((a,b)=>a-b);charSel=new Set();for(let k=x;k<=y;k++)charSel.add(k)}b.closest('#snipWC').querySelectorAll('.ch').forEach(x=>x.classList.toggle('on',charSel.has(+x.dataset.i)));navigator.vibrate&&navigator.vibrate(6)};
+E('snipOK').onclick=()=>{if(!lastM||pendingK==null||!pendingSegs){toast('先选一句');return}const s=pendingSegs[pendingK];const full=s.text.trim();const span=selectedSpan2(full);lastM.text=full;lastM.line=s.id||'';lastM.span=span||'';if(span)lastM.note=(lastM.note?lastM.note+' · ':'')+'「'+span+'」';save();render();navigator.vibrate&&navigator.vibrate(20);toast(span?('已确认：'+span):('已确认整句'));E('snip').style.display='none'};
 document.querySelectorAll('.skb').forEach(b=>{const on=()=>{b.classList.add('pr');navigator.vibrate&&navigator.vibrate(8)},off=()=>setTimeout(()=>b.classList.remove('pr'),90);b.addEventListener('touchstart',on,{passive:true});b.addEventListener('touchend',off);b.addEventListener('touchcancel',off);b.addEventListener('mousedown',on);b.addEventListener('mouseup',off);b.addEventListener('mouseleave',off)});
 })();
 </script>
