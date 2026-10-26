@@ -7,7 +7,8 @@
 4. （仅制作者用）页面最下方「显示本版改动」展开后，绿色标签=上一版以来改动处，点一下直接跳去听；列表可写备注/删除，自动存本机。
 5. 听完点「分享」或「复制清单」发回给 Grok Bot（时间精确到 mm:ss.s）。
 -->
-<html lang="zh"><head><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="听稿"><meta charset="utf-8">
+<html lang="zh"><head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="听稿"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><title>听稿</title>
 <style>
@@ -80,6 +81,9 @@ details summary{padding:8px 0;color:#9aa}
 .mkw>.mk.c灰{display:flex!important;width:100%!important;margin:0 0 16px!important}
 .mkrow{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;justify-content:space-between;gap:10px;width:100%}
 .mkrow>.mkc{flex:1 1 0!important;width:auto!important;min-width:0}
+.c绿{background:#16a34a!important;color:#16a34a}
+.mkrow{gap:8px!important}
+.mkrow .mk:not(.c灰){width:min(76px,20vw)!important;height:min(76px,20vw)!important;min-height:min(76px,20vw)!important;font-size:min(17px,4.4vw)!important}
 #share{background:#f08c2b!important;font-size:26px!important;font-weight:800;min-height:80px;width:100%;border-radius:16px}
 #lk{min-height:44px;font-size:16px;padding:6px 12px;border-radius:22px;background:#3a3f4b}
 #lk.un{background:#16a34a}
@@ -123,6 +127,7 @@ details summary{padding:8px 0;color:#9aa}
   <span class="dt" style="background:#e5484d"></span><b>念错？</b>＝念错了或听不懂（不用停）<br>
   <span class="dt" style="background:#f08c2b"></span><b>语速语调</b>＝太快、太慢、停得怪、语调突然跳<br>
   <span class="dt" style="background:#3b82f6"></span><b>音效👎</b>＝声音效果不好<br>
+  <span class="dt" style="background:#16a34a"></span><b>棒👍</b>＝这段好听／过关<br>
   <small>点完上方会弹「撤销」，点错马上点它；想撤更早的，点下面「↶ 撤销」选哪一步。标颜色后可对原文：先选句、再点具体字词、最后绿色✓确认。</small></div></div>
  <div class="st"><span class="n">3</span><div>听完了，<b>往下滑</b>，点<b class="org">橙色「复制去微信」</b> → 打开微信「我爱我家」群 → 输入框长按「粘贴」→ 发送。</div></div>
  <div class="opt">（可选）Safari 底部点分享 □↑ →「添加到主屏幕」，以后桌面一点就开。</div>
@@ -151,6 +156,7 @@ details summary{padding:8px 0;color:#9aa}
  <div class="mkc"><button class="mk c红" data-c="红">念错？<b class="bd" id="bd红"></b></button></div>
  <div class="mkc"><button class="mk c橙" data-c="橙">语速语调<b class="bd" id="bd橙"></b></button></div>
   <div class="mkc"><button class="mk c蓝" data-c="蓝">音效👎<b class="bd" id="bd蓝"></b></button></div>
+ <div class="mkc"><button class="mk c绿" data-c="绿">棒👍<b class="bd" id="bd绿"></b></button></div>
  </div>
 </div>
 <div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipW"><div class="wh">再点具体字／词（可连点一段），然后打勾确认</div><div class="wc" id="snipWC"></div></div><div id="snipF">① 选句子 ② 点字词 ③ 绿色 ✓ 确认</div><div id="snipN" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button type="button" data-d="-1000">◀ 早1秒</button><button type="button" data-d="-300">早0.3</button><button type="button" data-d="300">晚0.3</button><button type="button" data-d="1000">晚1秒 ▶</button></div><button type="button" id="snipOK" disabled>✓ 确认标注</button></div>
@@ -178,8 +184,8 @@ details summary{padding:8px 0;color:#9aa}
 </details>
 <script>
 const $=s=>document.querySelector(s),au=$('#au');
-const TAG={红:'念错',橙:'语速语调',黄:'文案/听感',蓝:'音效👎',灰:'备注'};
-const COL={红:'#d93a3a',橙:'#e8822a',黄:'#d9b520',蓝:'#2f7be0',灰:'#6b7280'};
+const TAG={红:'念错',橙:'语速语调',黄:'文案/听感',蓝:'音效👎',绿:'棒👍',灰:'备注'};
+const COL={红:'#d93a3a',橙:'#e8822a',黄:'#d9b520',蓝:'#2f7be0',绿:'#16a34a',灰:'#6b7280'};
 let key='',marks=[],lines=[],cls=[];
 const fmt=s=>{s=Math.max(0,s||0);const m=Math.floor(s/60);let r=(Math.floor(s%60*10)/10).toFixed(1);return String(m).padStart(2,'0')+':'+r.padStart(4,'0')};
 const esc=s=>String(s||'').replace(/[<&]/g,c=>c=='<'?'&lt;':'&amp;');
@@ -226,7 +232,7 @@ $('#ulList').onclick=e=>{const b=e.target.closest('.ur');if(!b)return;marks.spli
 $('#ulC').onclick=()=>$('#ul').style.display='none';
 function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改动 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.line?'['+m.line+'] ':''}${m.tag}${m.note?'：'+esc(m.note):''}</span><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
-function renderChips(){['红','橙','黄','蓝'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join(''):''}
+function renderChips(){['红','橙','黄','蓝','绿'].forEach(c=>{const e=document.getElementById('bd'+c);if(e){const n=marks.filter(m=>m.color===c).length;e.textContent=n||''}});const d=au.duration;$('#chips').innerHTML=d?marks.map(m=>`<i style="left:calc(${m.t_ms/10/d}% - 2px);background:${COL[m.color]}"></i>`).join(''):''}
 $('#list').onclick=e=>{const g=e.target.dataset;if(g.g)jump(marks[g.g].t_ms/1000);if(g.e){const n=prompt('备注',marks[g.e].note);if(n!==null){marks[g.e].note=n;save();render()}}if(g.d&&confirm('删除这条？')){marks.splice(g.d,1);save();render()}};
 function md(){return `# 听稿标记：${key.slice(3)}\n共 ${marks.length} 处（时间 mm:ss.s）\n\n`+marks.map(m=>`- [ ] ${m.time} 【${m.color}·${m.tag}】${m.line?' '+m.line:''}${m.span?' ⚑「'+m.span+'」':(m.text?' 「'+m.text+'」':'')}${m.note?' — '+m.note:''}`).join('\n')+(cls.length?`\n\n改过已听：${cls.filter(c=>c.done).length}/${cls.length}`:'')}
 $('#share').onclick=async()=>{let ok=true;try{await navigator.clipboard.writeText(md())}catch(e){ok=false;prompt('长按全选复制',md())}$('#wx').style.display='flex';if(ok)setTimeout(()=>{try{location.href='weixin://'}catch(e){}},900)};
