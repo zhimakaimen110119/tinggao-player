@@ -7,7 +7,7 @@
     "file": "audio/latest.mp3",
     "version": "audio/version.txt",
     "transcript": "audio/latest.tr.json",
-    "ver": "EP01_v11"
+    "ver": "EP01_v12"
    },
    "en": {
     "file": "audio/latest_en.mp3",
