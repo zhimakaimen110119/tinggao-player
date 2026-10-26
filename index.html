@@ -72,6 +72,10 @@ details summary{padding:8px 0;color:#9aa}
 .c红{background:#e5484d!important;color:#e5484d}.c橙{background:#f08c2b!important;color:#f08c2b}.c黄{background:#e3b505!important;color:#e3b505}.c蓝{background:#3b82f6!important;color:#3b82f6}
 .mk{color:#fff}.mk.c黄{color:#111}
 .mk.c灰{grid-column:1/-1;margin-top:4px;width:auto;height:52px;min-height:52px!important;border-radius:26px!important;font-size:18px!important}
+.marks{grid-template-columns:repeat(3,1fr)!important;gap:14px 10px!important}
+.mk.c灰{grid-column:1/-1!important;order:-1;width:100%!important;height:72px!important;min-height:72px!important;margin:0 0 4px!important;border-radius:18px!important;font-size:26px!important;font-weight:800;background:linear-gradient(#f8fafc,#e2e8f0)!important;color:#1f2937!important;border:2px solid #fff!important;box-shadow:0 6px 18px rgba(0,0,0,.35),inset 0 1px 0 #fff!important;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.mk.c灰 small.sub{display:block;font-size:14px;font-weight:500;color:#64748b;margin-top:3px}
+.mk:not(.c灰){width:84px!important;height:84px!important;min-height:84px!important;font-size:18px!important;line-height:1.15;padding:4px}
 #share{background:#f08c2b!important;font-size:26px!important;font-weight:800;min-height:80px;width:100%;border-radius:16px}
 #lk{min-height:44px;font-size:16px;padding:6px 12px;border-radius:22px;background:#3a3f4b}
 #lk.un{background:#16a34a}
@@ -138,10 +142,10 @@ details summary{padding:8px 0;color:#9aa}
 
 </div>
 <div class="card marks mkw">
+ <button class="mk c灰" data-c="灰">✎ 备注<small class="sub">想说什么就写</small></button>
  <div class="mkc"><button class="mk c红" data-c="红">念错？<b class="bd" id="bd红"></b></button></div>
  <div class="mkc"><button class="mk c橙" data-c="橙">语速语调<b class="bd" id="bd橙"></b></button></div>
   <div class="mkc"><button class="mk c蓝" data-c="蓝">音效👎<b class="bd" id="bd蓝"></b></button></div>
- <button class="mk c灰" data-c="灰">✎ 备注（写字说明）</button>
 </div>
 <div class="card" id="snip" style="display:none"><div id="snipH"></div><div id="snipB"></div><div id="snipW"><div class="wh">再点具体字／词（可连点一段），然后打勾确认</div><div class="wc" id="snipWC"></div></div><div id="snipF">① 选句子 ② 点字词 ③ 绿色 ✓ 确认</div><div id="snipN" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button type="button" data-d="-1000">◀ 早1秒</button><button type="button" data-d="-300">早0.3</button><button type="button" data-d="300">晚0.3</button><button type="button" data-d="1000">晚1秒 ▶</button></div><button type="button" id="snipOK" disabled>✓ 确认标注</button></div>
 <div class="card">
