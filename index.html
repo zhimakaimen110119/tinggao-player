@@ -122,7 +122,7 @@ details summary{padding:8px 0;color:#9aa}
 #list .n .w{color:#fbbf24;font-weight:700}#list .n .sx{color:#99a;font-size:13px}
 #topUndo{display:none!important}
 #ck .ci{padding:8px 0;border-bottom:1px solid #eee;font-size:17px;line-height:1.45}#ck .ci .w{color:#b45309;font-weight:700}
-</style><script>try{if(localStorage.getItem("tg_hideHow")==="1")document.write("<style>#howBtn{display:none!important}</style>")}catch(e){}</script></head><body>
+.ur.sel{outline:2px solid #ef4444;background:#3b1d1d!important}.ck{font-size:20px}</style><script>try{if(localStorage.getItem("tg_hideHow")==="1")document.write("<style>#howBtn{display:none!important}</style>")}catch(e){}</script></head><body>
 <h1>把中国讲给你听 · 手机听稿</h1>
 <div style="font-size:15px;margin:4px 0 10px;opacity:.85">选音频后点颜色记问题；听完点「复制去微信」发回</div>
 <button id="howBtn" type="button" onclick="document.getElementById('howM').classList.add('on')">❓ 怎么用？<small>点我看三步说明</small></button>
@@ -177,7 +177,7 @@ details summary{padding:8px 0;color:#9aa}
 <audio id="au" preload="metadata" playsinline></audio>
 <div id="toast"></div>
 <button id="topUndo">↶ 撤销</button>
-<div id="ul" class="sh" onclick="if(event.target===this)this.style.display='none'"><div class="shc"><div class="sht">撤销哪一步？</div><div id="ulList"></div><button id="ulC" class="shb">取消</button></div></div>
+<div id="ul" class="sh" onclick="if(event.target===this)this.style.display='none'"><div class="shc"><div class="sht">撤销哪一步？</div><div style="font-size:14px;color:#94a3b8;margin:-4px 0 8px">可多选，勾好后点「撤销所选」</div><div id="ulList"></div><button id="ulOk" class="shb" style="background:#b91c1c;color:#fff;margin-bottom:8px">撤销所选（0）</button><button id="ulC" class="shb">取消</button></div></div>
 <div id="ck" class="sh" onclick="if(event.target===this)this.style.display='none'"><div class="shc"><div class="sht">请您核对标注（共 <span id="ckN"></span> 处）</div><div style="font-size:15px;color:#666;margin-bottom:6px">时间 · 类型 · 句号 · 字词落点</div><div id="ckL"></div><button class="shb" id="ckOK" style="background:#f08c2b;color:#fff;font-weight:800">确认，复制去微信</button><button class="shb" id="ckX">再改改</button></div></div>
 <div id="wx" class="sh" onclick="if(event.target===this)this.style.display='none'"><div class="shc"><div class="sht">✅ 已复制</div><div style="font-size:19px;line-height:1.6">打开<b>微信</b> → <b>我爱我家</b>群 → 输入框<b>长按粘贴</b> → 发送</div><button class="shb" onclick="document.getElementById('wx').style.display='none'">好的</button></div></div>
 <style>#topUndo{position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 12px);transform:translate(-50%,-90px);z-index:1000;min-height:48px;padding:0 26px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#1f2937;font-size:19px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .25s}#topUndo.on{transform:translate(-50%,0)}#topUndo:active{transform:translate(-50%,0) scale(.95)}
@@ -238,8 +238,9 @@ let _locT;function showLoc(m){const e=$('#loc');e.innerHTML='落点：'+locHTML(
 function undoLast(){if(!marks.length)return;let i=marks.reduce((a,m,j)=>(m._c||0)>(marks[a]._c||0)?j:a,0);marks.splice(i,1);save();render();toast('已撤销');hideTU()}
 let _tuT;function showTU(){const e=$('#topUndo');e.classList.add('on');clearTimeout(_tuT);_tuT=setTimeout(hideTU,6000)}function hideTU(){clearTimeout(_tuT);$('#topUndo').classList.remove('on')}
 $('#topUndo').onclick=undoLast;
-$('#undo').onclick=()=>{if(!marks.length){toast('您还没有标记');return}const L=marks.map((m,i)=>[m,i]).sort((a,b)=>(b[0]._c||0)-(a[0]._c||0)).slice(0,30);$('#ulList').innerHTML=L.map(([m,i])=>`<button class="ur" data-i="${i}"><span class="dot" style="background:${COL[m.color]}"></span><b>${m.time}</b> ${m.tag}${m.note?'：'+esc(m.note.slice(0,24)):''}</button>`).join('');$('#ul').style.display='flex'};
-$('#ulList').onclick=e=>{const b=e.target.closest('.ur');if(!b)return;marks.splice(+b.dataset.i,1);save();render();$('#ul').style.display='none';hideTU();toast('已撤销这一步')};
+$('#undo').onclick=()=>{if(!marks.length){toast('您还没有标记');return}const L=marks.map((m,i)=>[m,i]).sort((a,b)=>(b[0]._c||0)-(a[0]._c||0)).slice(0,30);$('#ulList').innerHTML=L.map(([m,i])=>`<button class="ur" data-i="${i}"><span class="ck">☐</span> <span class="dot" style="background:${COL[m.color]}"></span><b>${m.time}</b> ${m.tag}${m.note?'：'+esc(m.note.slice(0,24)):''}</button>`).join('');$('#ulOk').textContent='撤销所选（0）';$('#ul').style.display='flex'};
+$('#ulList').onclick=e=>{const b=e.target.closest('.ur');if(!b)return;b.classList.toggle('sel');b.querySelector('.ck').textContent=b.classList.contains('sel')?'☑':'☐';const n=$('#ulList').querySelectorAll('.ur.sel').length;$('#ulOk').textContent='撤销所选（'+n+'）'};
+$('#ulOk').onclick=()=>{const I=[...$('#ulList').querySelectorAll('.ur.sel')].map(b=>+b.dataset.i).sort((a,b)=>b-a);if(!I.length){toast('请您先勾选要撤销的步骤');return}I.forEach(i=>marks.splice(i,1));save();render();$('#ul').style.display='none';hideTU();toast('已撤销 '+I.length+' 步')};
 $('#ulC').onclick=()=>$('#ul').style.display='none';
 function renderCL(){$('#clwrap').style.display=cls.length?'block':'none';$('#cl').innerHTML=cls.map((c,i)=>`<button data-i="${i}" class="${c.done?'done':''}">改动 ${fmt(c.t)}${c.version?' '+esc(c.version):''}<br><small>${esc(c.label).slice(0,14)}</small></button>`).join('')}
 function render(){$('#list').innerHTML=marks.map((m,i)=>`<div class="it"><span class="dot" style="background:${COL[m.color]}"></span><span class="t" data-g="${i}">${m.time}</span><span class="n">${m.tag}${m.line?' <span class="sx">['+esc(m.line)+']</span>':''}${(m.span||m.text)?' <span class="w">「'+esc((m.span||m.text).trim().slice(0,30))+'」</span>':''}${m.note&&!m.span?'：'+esc(m.note):''}</span><button data-s="${i}">是这吗</button><button data-e="${i}">✎</button><button data-d="${i}">✕</button></div>`).join('')||'<div style="color:#667;padding:10px 0">还没有标记</div>';renderCL();renderChips()}
