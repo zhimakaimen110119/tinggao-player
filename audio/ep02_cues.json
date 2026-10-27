@@ -1,68 +1,68 @@
 [
  {
+  "t": "00:00.0",
+  "label": "改：恢复开场主题音乐（固定节目片头/片尾主题）",
+  "version": "v3.11g",
+  "kind": "fix"
+ },
+ {
+  "t": "00:00.0",
+  "label": "开场音乐（古琴+埙主题，叠在开场旁白下，约8s，淡入0.9s/淡出3s，约人声−11dB；不垫片头、不挪轴）",
+  "version": "v3.11g",
+  "kind": "sfx"
+ },
+ {
   "t": "01:04.1",
   "label": "倒回/衔接：邯郸句后 cinematic rewind（反向嗖声+卷带回旋→撞击+金属余辉，约3.5s，峰值人声−8dB）",
-  "version": "v3.11f",
-  "kind": "fix"
- },
- {
-  "t": "00:11.3",
-  "label": "改：开场「过去」去升调（不动绝对开头）",
-  "version": "v3.11f",
-  "kind": "fix"
- },
- {
-  "t": "01:00.0",
-  "label": "改：音效宁缺毋滥——中段只留 4 条音乐点，删全部环境床/拟音（A03/A04/A07/A10/A12/A16-A28/A31/A33-A34 等）",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "fix"
  },
  {
   "t": "01:04.1",
   "label": "倒回/衔接（邯郸）el_rewind_a",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "00:00.0",
   "label": "A01 音乐·极轻的低弦呼吸",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "02:00.9",
   "label": "A05 音乐·轻弦短动机",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "06:55.4",
   "label": "A14 音乐·低弦脉动略加紧",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "15:56.8",
   "label": "A29 音乐·单个低铜质音色延音",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "17:14.5",
   "label": "A32 音乐·主题第一次清楚展开",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "20:49.3",
   "label": "收束音效（万里长城）",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  },
  {
   "t": "20:54.6",
   "label": "片尾音乐（古琴+埙 15s，收束后 1s 空）",
-  "version": "v3.11f",
+  "version": "v3.11g",
   "kind": "sfx"
  }
 ]
