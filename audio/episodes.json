@@ -217,124 +217,130 @@
         ]
       },
       "en": {
-        "file": "audio/ep02_en.mp3",
-        "version": "audio/version_ep02_en.txt",
-        "transcript": "audio/ep02_en.tr.json",
-        "ver": "EP02_EN_v1_整集干声",
+        "file": "audio/ep02_en_mix_v1.mp3",
+        "version": "audio/version_ep02_en_mix.txt",
+        "transcript": "audio/ep02_en_mix_v1.tr.json",
+        "ver": "EP02_EN_v1_混音试听",
         "cl": [
           {
             "t": "00:00.0",
+            "label": "C01 片头 古琴/埙",
+            "version": "EN mix v1",
+            "kind": "sfx"
+          },
+          {
+            "t": "00:06.8",
+            "label": "改：开场插7.0s静音，片头独奏后旁白起",
+            "version": "EN mix v1",
+            "kind": "fix"
+          },
+          {
+            "t": "00:07.0",
             "label": "§B1 冷开场 221 BC",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "01:08.7",
+            "t": "01:15.7",
             "label": "§B3 倒回邯郸（未来倒回音位）",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "02:01.1",
-            "label": "⚑ok:False 语速越界 f033「And there was a woman.」",
-            "version": "EN v1",
+            "t": "01:21.4",
+            "label": "C02 倒回音 邯郸",
+            "version": "EN mix v1",
+            "kind": "sfx"
+          },
+          {
+            "t": "01:21.9",
+            "label": "改：邯郸缝插2.8s静音(1.0→3.8s)",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "02:40.0",
+            "t": "02:49.8",
             "label": "§B4 六国落",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "02:48.4",
-            "label": "⚑ok:False 语速越界 f048「Not even a dagger in the pal」",
-            "version": "EN v1",
-            "kind": "fix"
-          },
-          {
-            "t": "02:58.4",
-            "label": "⚑Gone.（补生成） f051「Gone.」",
-            "version": "EN v1",
-            "kind": "fix"
-          },
-          {
-            "t": "03:07.2",
+            "t": "03:17.0",
             "label": "§B5 造号",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "03:11.0",
-            "label": "⚑ok:False 语速越界 f055「There had been a king of Qin」",
-            "version": "EN v1",
-            "kind": "fix"
+            "t": "04:28.5",
+            "label": "C03 动机升 Emperor",
+            "version": "EN mix v1",
+            "kind": "sfx"
           },
           {
-            "t": "04:09.8",
-            "label": "⚑重点听 Huangdi（双呼 Hwahng-dee 临时） f072「Huangdi.」",
-            "version": "EN v1",
-            "kind": "fix"
-          },
-          {
-            "t": "04:57.4",
+            "t": "05:07.2",
             "label": "§B6 水德",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "05:47.5",
+            "t": "05:57.3",
             "label": "§B7 论战",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "06:08.5",
-            "label": "⚑ok:False 语速越界 f110「Without kings there, there i」",
-            "version": "EN v1",
-            "kind": "fix"
+            "t": "07:38.2",
+            "label": "C04 紧张脉动 Li Si",
+            "version": "EN mix v1",
+            "kind": "sfx"
           },
           {
-            "t": "07:09.6",
-            "label": "⚑ok:False 语速越界 f127「And no one under heaven will」",
-            "version": "EN v1",
-            "kind": "fix"
-          },
-          {
-            "t": "08:21.8",
+            "t": "08:31.6",
             "label": "§B8 县城运转",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "10:12.9",
+            "t": "10:22.7",
             "label": "§B9 收兵迁豪",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "11:19.0",
+            "t": "10:41.4",
+            "label": "C05 青铜音(可砍)",
+            "version": "EN mix v1",
+            "kind": "sfx"
+          },
+          {
+            "t": "11:28.8",
             "label": "§B10 中心",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "11:31.7",
-            "label": "⚑ok:False 语速越界 f198「The title he had invented no」",
-            "version": "EN v1",
-            "kind": "fix"
+            "t": "11:37.4",
+            "label": "C06 主题 中心",
+            "version": "EN mix v1",
+            "kind": "sfx"
           },
           {
-            "t": "11:41.0",
+            "t": "11:50.8",
             "label": "§B11 Look north 钩",
-            "version": "EN v1",
+            "version": "EN mix v1",
             "kind": "fix"
           },
           {
-            "t": "12:14.9",
-            "label": "⚑ok:False 语速越界 f211「That did not mean the north 」",
-            "version": "EN v1",
-            "kind": "fix"
+            "t": "12:38.5",
+            "label": "C07 收束音效",
+            "version": "EN mix v1",
+            "kind": "sfx"
+          },
+          {
+            "t": "12:45.5",
+            "label": "C08 片尾主题",
+            "version": "EN mix v1",
+            "kind": "sfx"
           }
         ]
       }
