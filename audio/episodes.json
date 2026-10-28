@@ -217,129 +217,117 @@
         ]
       },
       "en": {
-        "file": "audio/ep02_en_mix_v1.mp3",
+        "file": "audio/ep02_en_mix_v4.mp3",
         "version": "audio/version_ep02_en_mix.txt",
-        "transcript": "audio/ep02_en_mix_v1.tr.json",
-        "ver": "EP02_EN_v1_混音试听",
+        "transcript": "audio/ep02_en_mix_v4.tr.json",
+        "ver": "EP02_EN_v4_混音试听",
         "cl": [
           {
             "t": "00:00.0",
-            "label": "C01 片头 古琴/埙",
-            "version": "EN mix v1",
+            "label": "C01 片头主题独奏，旁白后移+7.0s",
+            "version": "EN mix v4",
             "kind": "sfx"
           },
           {
             "t": "00:06.8",
-            "label": "改：开场插7.0s静音，片头独奏后旁白起",
-            "version": "EN mix v1",
+            "label": "改：片头独奏7.0s后旁白起",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "00:07.0",
-            "label": "§B1 冷开场 221 BC",
-            "version": "EN mix v1",
-            "kind": "fix"
-          },
-          {
-            "t": "01:15.7",
-            "label": "§B3 倒回邯郸（未来倒回音位）",
-            "version": "EN mix v1",
-            "kind": "fix"
-          },
-          {
-            "t": "01:21.4",
-            "label": "C02 倒回音 邯郸",
-            "version": "EN mix v1",
+            "t": "01:25.5",
+            "label": "C02 邯郸倒回（259 BC 后，缝补到3.8s）",
+            "version": "EN mix v4",
             "kind": "sfx"
           },
           {
-            "t": "01:21.9",
-            "label": "改：邯郸缝插2.8s静音(1.0→3.8s)",
-            "version": "EN mix v1",
+            "t": "01:27.5",
+            "label": "改：邯郸缝插1.8s静音",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "02:49.8",
-            "label": "§B4 六国落",
-            "version": "EN mix v1",
+            "t": "02:28.7",
+            "label": "f015 重生成(过快)",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "03:17.0",
-            "label": "§B5 造号",
-            "version": "EN mix v1",
+            "t": "03:18.9",
+            "label": "f030 读音修：dagger 句加停顿",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "04:28.5",
-            "label": "C03 动机升 Emperor",
-            "version": "EN mix v1",
+            "t": "03:40.9",
+            "label": "f037 重生成(过快)",
+            "version": "EN mix v4",
+            "kind": "fix"
+          },
+          {
+            "t": "04:47.7",
+            "label": "C03 峰2 Emperor. 后",
+            "version": "EN mix v4",
             "kind": "sfx"
           },
           {
-            "t": "05:07.2",
-            "label": "§B6 水德",
-            "version": "EN mix v1",
+            "t": "06:44.6",
+            "label": "f093 读音修：kings there…",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "05:57.3",
-            "label": "§B7 论战",
-            "version": "EN mix v1",
-            "kind": "fix"
-          },
-          {
-            "t": "07:38.2",
-            "label": "C04 紧张脉动 Li Si",
-            "version": "EN mix v1",
+            "t": "08:12.1",
+            "label": "C04 峰3 裁决床",
+            "version": "EN mix v4",
             "kind": "sfx"
           },
           {
-            "t": "08:31.6",
-            "label": "§B8 县城运转",
-            "version": "EN mix v1",
-            "kind": "fix"
-          },
-          {
-            "t": "10:22.7",
-            "label": "§B9 收兵迁豪",
-            "version": "EN mix v1",
-            "kind": "fix"
-          },
-          {
-            "t": "10:41.4",
-            "label": "C05 青铜音(可砍)",
-            "version": "EN mix v1",
+            "t": "13:30.7",
+            "label": "C05 兵器熔铸",
+            "version": "EN mix v4",
             "kind": "sfx"
           },
           {
-            "t": "11:28.8",
-            "label": "§B10 中心",
-            "version": "EN mix v1",
+            "t": "14:11.7",
+            "label": "f209 重生成(过快)",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "11:37.4",
-            "label": "C06 主题 中心",
-            "version": "EN mix v1",
-            "kind": "sfx"
-          },
-          {
-            "t": "11:50.8",
-            "label": "§B11 Look north 钩",
-            "version": "EN mix v1",
+            "t": "14:43.6",
+            "label": "f218 重生成(过快)",
+            "version": "EN mix v4",
             "kind": "fix"
           },
           {
-            "t": "12:38.5",
-            "label": "C07 收束音效",
-            "version": "EN mix v1",
+            "t": "14:52.2",
+            "label": "f221 读音修：seat… of a strong kingdom",
+            "version": "EN mix v4",
+            "kind": "fix"
+          },
+          {
+            "t": "15:42.6",
+            "label": "C06 咸阳盛顶，Look north 前静",
+            "version": "EN mix v4",
             "kind": "sfx"
           },
           {
-            "t": "12:45.5",
+            "t": "16:02.0",
+            "label": "f239 读音修：look… at the map",
+            "version": "EN mix v4",
+            "kind": "fix"
+          },
+          {
+            "t": "16:50.5",
+            "label": "C07 收束",
+            "version": "EN mix v4",
+            "kind": "sfx"
+          },
+          {
+            "t": "16:57.5",
             "label": "C08 片尾主题",
-            "version": "EN mix v1",
+            "version": "EN mix v4",
             "kind": "sfx"
           }
         ]
