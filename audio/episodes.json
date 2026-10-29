@@ -502,16 +502,58 @@
         "cues": "audio/ep03_cues.json"
       },
       "en": {
-        "file": "audio/ep03_en_dry_v7_2.mp3",
+        "file": "audio/ep03_en_mix_v7.mp3",
         "version": "audio/version_ep03_en.txt",
-        "transcript": "audio/ep03_en_dry_v7_2.tr.json",
-        "ver": "EP03_EN_v7.2_整集干声",
+        "transcript": "audio/ep03_en_mix_v7.tr.json",
+        "ver": "EP03_EN_v7_混音试听",
         "cl": [
           {
             "t": "00:00.0",
-            "label": "EN 整集干声 v7.2（无音乐/音效）：110句，seed202 声线；导演停顿×2；口语速183 WPM，含停顿145 WPM；45句仍偏快(187–277 WPM)已取最慢候选，未变速",
-            "version": "EN dry v7.2",
+            "label": "改：片头对齐EP01/中文——主题2.2s淡入，旁白约5.5s起时主题仍在，人声下压低并3s淡出；干声整体+5.0s，未变速",
+            "version": "EN mix v7",
             "kind": "fix"
+          },
+          {
+            "t": "00:00.0",
+            "label": "C01 片头主题：2.2s淡入→立住→旁白5.5s起时主题仍在，压低-9dB并在人声下3s淡出（对齐EP01/CN）",
+            "version": "EN mix v7",
+            "kind": "sfx"
+          },
+          {
+            "t": "00:13.1",
+            "label": "C02 北风：Two thousand years ago… walked north → Meng Tian（薄）",
+            "version": "EN mix v7",
+            "kind": "sfx"
+          },
+          {
+            "t": "04:17.9",
+            "label": "C03 时间转场：史书无名→孟姜女传说（e039前）",
+            "version": "EN mix v7",
+            "kind": "sfx"
+          },
+          {
+            "t": "04:41.4",
+            "label": "C04 悲哭高峰：She weeps… wall collapses（细床）",
+            "version": "EN mix v7",
+            "kind": "sfx"
+          },
+          {
+            "t": "06:34.1",
+            "label": "C05 清场回史实：The historical Meng Tian",
+            "version": "EN mix v7",
+            "kind": "sfx"
+          },
+          {
+            "t": "10:27.0",
+            "label": "C07 收束：How do you hand down a world…? 问句后",
+            "version": "EN mix v7",
+            "kind": "sfx"
+          },
+          {
+            "t": "10:33.8",
+            "label": "C08 片尾主题",
+            "version": "EN mix v7",
+            "kind": "sfx"
           }
         ]
       }
