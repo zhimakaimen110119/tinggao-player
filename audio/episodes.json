@@ -343,10 +343,10 @@
    "id": "EP03",
    "title": "EP03 蒙恬筑边 混音试听",
    "zh": {
-    "file": "audio/ep03_mix_v7_1.mp3",
+    "file": "audio/ep03_mix_v7_2.mp3",
     "version": "audio/version_ep03.txt",
-    "transcript": "audio/ep03_mix_v7_1.tr.json",
-    "ver": "EP03_CN_v7.1_混音试听",
+    "transcript": "audio/ep03_mix_v7_2.tr.json",
+    "ver": "EP03_CN_v7.2_混音试听",
     "cl": [
      {
       "t": "00:00.0",
@@ -440,9 +440,9 @@
      },
      {
       "t": "11:44.7",
-      "label": "CN-C06 咸阳宫宴／殿上争论空气",
-      "version": "CN mix v7.1",
-      "kind": "sfx"
+      "label": "改：删CN-C06宫殿空气床（a_palace_air循环底噪/电流声，11:44–12:33）——此段只留人声",
+      "version": "CN mix v7.2",
+      "kind": "fix"
      },
      {
       "t": "11:45.0",

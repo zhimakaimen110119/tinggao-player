@@ -1,5 +1,5 @@
 {
- "version": "EP03_CN_v7.1_混音试听",
+ "version": "EP03_CN_v7.2_混音试听",
  "pad": 5.0,
  "cues": [
   {
@@ -46,15 +46,6 @@
    "dur": 4.0,
    "gain_db_vs_voice_rms": -16,
    "why": "清场回史实：历史上的蒙恬"
-  },
-  {
-   "cue": "CN-C06",
-   "asset": "a_palace_air.wav",
-   "mix_t": 704.73,
-   "mmss": "11:44.7",
-   "dur": 48.03,
-   "gain_db_vs_voice_rms": -24,
-   "why": "咸阳宫宴／殿上争论空气"
   },
   {
    "cue": "CN-C07",
