@@ -337,135 +337,135 @@
    "id": "EP03",
    "title": "EP03 蒙恬筑边 混音试听",
    "zh": {
-    "file": "audio/ep03_mix_v7.mp3",
+    "file": "audio/ep03_mix_v7_1.mp3",
     "version": "audio/version_ep03.txt",
-    "transcript": "audio/ep03_mix_v7.tr.json",
-    "ver": "EP03_CN_v7_混音试听",
+    "transcript": "audio/ep03_mix_v7_1.tr.json",
+    "ver": "EP03_CN_v7.1_混音试听",
     "cl": [
      {
       "t": "00:00.0",
-      "label": "CN-C01 片头主题独奏（古琴＋埙），旁白后移+7.0s",
-      "version": "CN mix v7",
-      "kind": "sfx"
-     },
-     {
-      "t": "00:00.0",
-      "label": "改：片头垫入7.0s主题独奏，旁白整体+7.0s",
-      "version": "CN mix v7",
+      "label": "改：片头淡入对齐EP01——主题2.2s淡入、音量提到EP01水平；旁白5.5s起时主题仍在，人声下3s淡出，无空档；全片−2.0s",
+      "version": "CN mix v7.1",
       "kind": "fix"
      },
      {
-      "t": "00:16.0",
-      "label": "CN-C02 北风：两千多年前往北走→领兵的是蒙恬（薄、压在人声下）",
-      "version": "CN mix v7",
+      "t": "00:00.0",
+      "label": "CN-C01 片头主题（古琴＋埙）淡入→垫入首句→人声下淡出",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      },
      {
-      "t": "00:24.8",
+      "t": "00:14.0",
+      "label": "CN-C02 北风：两千多年前往北走→领兵的是蒙恬（薄、压在人声下）",
+      "version": "CN mix v7.1",
+      "kind": "sfx"
+     },
+     {
+      "t": "00:22.8",
       "label": "⚑年份口播：二百一十五年",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "01:52.5",
+      "t": "01:50.5",
       "label": "⚑多音：都得",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "02:05.7",
+      "t": "02:03.7",
       "label": "⚑多音：也得",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "04:07.7",
+      "t": "04:05.7",
       "label": "⚑多音：还得",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "04:43.2",
+      "t": "04:41.2",
       "label": "⚑多音：率军＋年份二百一十三年",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "05:23.5",
+      "t": "05:21.5",
       "label": "⚑多音：率军",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "05:50.3",
+      "t": "05:48.3",
       "label": "CN-C03 时间转场：史书无名→民间孟姜女传说",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      },
      {
-      "t": "05:50.3",
+      "t": "05:48.3",
       "label": "关键cue：孟姜女传说转场",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "fix"
      },
      {
-      "t": "06:17.5",
+      "t": "06:15.5",
       "label": "CN-C04 悲哭高峰：孟姜女大哭→哭倒长城（细床，非煽情）",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      },
      {
-      "t": "06:17.5",
+      "t": "06:15.5",
       "label": "关键cue：哭倒长城高峰细床",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "fix"
      },
      {
-      "t": "08:44.5",
+      "t": "08:42.5",
       "label": "CN-C05 清场回史实：历史上的蒙恬",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      },
      {
-      "t": "10:52.8",
+      "t": "10:50.8",
       "label": "⚑多音：还得",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "11:46.7",
+      "t": "11:44.7",
       "label": "CN-C06 咸阳宫宴／殿上争论空气",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      },
      {
-      "t": "11:47.0",
+      "t": "11:45.0",
       "label": "⚑年份口播：二百一十三年",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "13:10.3",
+      "t": "13:08.3",
       "label": "⚑收束问句",
       "version": "CN v7",
       "kind": "fix"
      },
      {
-      "t": "13:14.9",
+      "t": "13:12.9",
       "label": "CN-C07 收束：传给后人？问句后",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      },
      {
-      "t": "13:14.9",
+      "t": "13:12.9",
       "label": "关键cue：收束＋片尾（结尾待wei自配）",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "fix"
      },
      {
-      "t": "13:21.7",
+      "t": "13:19.7",
       "label": "CN-C08 片尾主题",
-      "version": "CN mix v7",
+      "version": "CN mix v7.1",
       "kind": "sfx"
      }
     ],
