@@ -1,0 +1,78 @@
+{
+ "version": "EP03_CN_v7_混音试听",
+ "pad": 7.0,
+ "cues": [
+  {
+   "cue": "CN-C01",
+   "asset": "theme_guqin_xun_15s.mp3",
+   "mix_t": 0.0,
+   "mmss": "00:00.0",
+   "dur": 6.8,
+   "gain_db_vs_voice_rms": -11,
+   "why": "片头主题独奏（古琴＋埙），旁白后移+7.0s"
+  },
+  {
+   "cue": "CN-C02",
+   "asset": "a_north_wind.wav",
+   "mix_t": 16.0,
+   "mmss": "00:16.0",
+   "dur": 17.21,
+   "gain_db_vs_voice_rms": -24,
+   "why": "北风：两千多年前往北走→领兵的是蒙恬（薄、压在人声下）"
+  },
+  {
+   "cue": "CN-C03",
+   "asset": "el_rewind_b.wav",
+   "mix_t": 350.31,
+   "mmss": "05:50.3",
+   "dur": 4.48,
+   "gain_db_vs_voice_rms": -14,
+   "why": "时间转场：史书无名→民间孟姜女传说"
+  },
+  {
+   "cue": "CN-C04",
+   "asset": "m_narrow.wav",
+   "mix_t": 377.51,
+   "mmss": "06:17.5",
+   "dur": 7.94,
+   "gain_db_vs_voice_rms": -20,
+   "why": "悲哭高峰：孟姜女大哭→哭倒长城（细床，非煽情）"
+  },
+  {
+   "cue": "CN-C05",
+   "asset": "m_open_breath.wav",
+   "mix_t": 524.51,
+   "mmss": "08:44.5",
+   "dur": 4.0,
+   "gain_db_vs_voice_rms": -16,
+   "why": "清场回史实：历史上的蒙恬"
+  },
+  {
+   "cue": "CN-C06",
+   "asset": "a_palace_air.wav",
+   "mix_t": 706.73,
+   "mmss": "11:46.7",
+   "dur": 48.03,
+   "gain_db_vs_voice_rms": -24,
+   "why": "咸阳宫宴／殿上争论空气"
+  },
+  {
+   "cue": "CN-C07",
+   "asset": "el_emperor_end.wav",
+   "mix_t": 794.87,
+   "mmss": "13:14.9",
+   "dur": 6.0,
+   "gain_db_vs_voice_rms": -10,
+   "why": "收束：传给后人？问句后"
+  },
+  {
+   "cue": "CN-C08",
+   "asset": "theme_guqin_xun_15s.mp3",
+   "mix_t": 801.67,
+   "mmss": "13:21.7",
+   "dur": 15.0,
+   "gain_db_vs_voice_rms": -11,
+   "why": "片尾主题"
+  }
+ ]
+}

@@ -1,469 +1,476 @@
 {
-  "episodes": [
-    {
-      "id": "EP01",
-      "title": "EP01 荆轲刺秦",
-      "zh": {
-        "file": "audio/latest.mp3",
-        "version": "audio/version.txt",
-        "transcript": "audio/latest.tr.json",
-        "ver": "EP01_v12"
-      },
-      "en": {
-        "file": "audio/latest_en.mp3",
-        "version": "audio/version_en.txt"
-      }
-    },
-    {
-      "id": "EP02",
-      "title": "EP02 造皇帝 混音试听",
-      "zh": {
-        "file": "audio/ep02.mp3",
-        "version": "audio/version_ep02.txt",
-        "ver": "EP02_v3.11e_混音试听",
-        "cl": [
-          {
-            "t": "01:04.1",
-            "label": "改：倒回音（邯郸）低钟+渐强 5s，同 EP01；轻垫古琴主题",
-            "version": "v3.11e",
-            "kind": "fix"
-          },
-          {
-            "t": "00:11.3",
-            "label": "改：开场「过去」去升调（s002 重配 seed914），无片头垫",
-            "version": "v3.11e",
-            "kind": "fix"
-          },
-          {
-            "t": "04:20.0",
-            "label": "改：去掉 A09/A13/A17（按你👎）；邯郸后时间轴 +5s",
-            "version": "v3.11e",
-            "kind": "fix"
-          },
-          {
-            "t": "01:04.1",
-            "label": "倒回音（邯郸）el_death_toll+el_deputy_dread",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "00:00.0",
-            "label": "A01 音乐·极轻的低弦呼吸",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "00:59.9",
-            "label": "A03 转场·一声轻微木简翻动质感",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "01:08.8",
-            "label": "A04 环境·战国城镇远景",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "02:01.9",
-            "label": "A05 音乐·轻弦短动机",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "03:11.1",
-            "label": "A07 音乐·极淡低频节奏纹理",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "04:40.4",
-            "label": "A10 音乐·音乐微微收窄",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "05:34.2",
-            "label": "A12 音乐·古朴而非复古考据的音色纹理",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "06:56.4",
-            "label": "A14 音乐·低弦脉动略加紧",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "08:55.5",
-            "label": "A16 转场·木简轻放案面一声",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "10:11.3",
-            "label": "A18 音效·竹简",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "10:56.2",
-            "label": "A19 音效·毛笔在木简上的轻微书写摩擦",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "11:56.0",
-            "label": "A20 音效·青铜量器",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "12:41.3",
-            "label": "A21 音效·木轮在压实土路上缓行",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "13:18.5",
-            "label": "A22 环境·道路远景",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "14:00.1",
-            "label": "A23 音效·简牍束带松开",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "14:23.7",
-            "label": "A24 环境·极淡的木牍翻检",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "14:36.3",
-            "label": "A25 音乐·细微短促节奏型",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "15:28.9",
-            "label": "A26 音乐·前文统一措施的旋律动机第一次完整露出",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "15:31.1",
-            "label": "A27 音效·金属器物相碰",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "15:41.0",
-            "label": "A28 音效·炉火轻鸣与熔炼金属的低频空气质感",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "15:57.8",
-            "label": "A29 音乐·单个低铜质音色延音",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "16:46.5",
-            "label": "A31 环境·远景木轮渐远和微弱衣料摩擦",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "17:15.5",
-            "label": "A32 音乐·主题第一次清楚展开",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "19:22.8",
-            "label": "A33 转场·音乐缓慢退出",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "19:27.9",
-            "label": "A34 环境·稀薄草原风",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "20:30.0",
-            "label": "A35 环境·北方开阔风声尾音自然衰减",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "20:50.3",
-            "label": "收束音效（万里长城）",
-            "version": "v3.11e",
-            "kind": "sfx"
-          },
-          {
-            "t": "20:55.6",
-            "label": "片尾音乐（古琴+埙 15s，收束后 1s 空）",
-            "version": "v3.11e",
-            "kind": "sfx"
-          }
-        ]
-      },
-      "en": {
-        "file": "audio/ep02_en_mix_v4.mp3",
-        "version": "audio/version_ep02_en_mix.txt",
-        "transcript": "audio/ep02_en_mix_v4.tr.json",
-        "ver": "EP02_EN_v4_混音试听",
-        "cl": [
-          {
-            "t": "00:00.0",
-            "label": "C01 片头主题独奏，旁白后移+7.0s",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "00:06.8",
-            "label": "改：片头独奏7.0s后旁白起",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "01:25.5",
-            "label": "C02 邯郸倒回（259 BC 后，缝补到3.8s）",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "01:27.5",
-            "label": "改：邯郸缝插1.8s静音",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "02:28.7",
-            "label": "f015 重生成(过快)",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "03:18.9",
-            "label": "f030 读音修：dagger 句加停顿",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "03:40.9",
-            "label": "f037 重生成(过快)",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "04:47.7",
-            "label": "C03 峰2 Emperor. 后",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "06:44.6",
-            "label": "f093 读音修：kings there…",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "08:12.1",
-            "label": "C04 峰3 裁决床",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "13:30.7",
-            "label": "C05 兵器熔铸",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "14:11.7",
-            "label": "f209 重生成(过快)",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "14:43.6",
-            "label": "f218 重生成(过快)",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "14:52.2",
-            "label": "f221 读音修：seat… of a strong kingdom",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "15:42.6",
-            "label": "C06 咸阳盛顶，Look north 前静",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "16:02.0",
-            "label": "f239 读音修：look… at the map",
-            "version": "EN mix v4",
-            "kind": "fix"
-          },
-          {
-            "t": "16:50.5",
-            "label": "C07 收束",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          },
-          {
-            "t": "16:57.5",
-            "label": "C08 片尾主题",
-            "version": "EN mix v4",
-            "kind": "sfx"
-          }
-        ]
-      }
-    },
-    {
-      "id": "EP03",
-      "title": "EP03 蒙恬筑边 中文整集干声",
-      "zh": {
-        "file": "audio/ep03.mp3",
-        "version": "audio/version_ep03.txt",
-        "transcript": "audio/ep03.tr.json",
-        "ver": "EP03_CN_v7_整集干声",
-        "cl": [
-          {
-            "t": "00:00.5",
-            "label": "§开场 今人上墙",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "00:17.8",
-            "label": "§北击匈奴／蒙恬",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "00:45.9",
-            "label": "§没有班师",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "02:14.4",
-            "label": "§旧墙复用",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "04:00.7",
-            "label": "§还得派人北上",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "04:36.2",
-            "label": "§二一三年／发往长城",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "05:44.4",
-            "label": "§孟姜女传说",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "08:38.6",
-            "label": "§史实蒙恬",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "09:27.3",
-            "label": "§两千年后的墙",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "10:11.5",
-            "label": "§拨回始皇年代",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "11:40.0",
-            "label": "§咸阳宫宴／下集钩",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "00:17.8",
-            "label": "⚑年份口播：二百一十五年",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "01:45.5",
-            "label": "⚑多音：都得",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "01:58.7",
-            "label": "⚑多音：也得",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "04:00.7",
-            "label": "⚑多音：还得",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "04:36.2",
-            "label": "⚑多音：率军＋年份二百一十三年",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "05:16.5",
-            "label": "⚑多音：率军",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "10:45.8",
-            "label": "⚑多音：还得",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "11:40.0",
-            "label": "⚑年份口播：二百一十三年",
-            "version": "CN v7",
-            "kind": "fix"
-          },
-          {
-            "t": "13:03.3",
-            "label": "⚑收束问句",
-            "version": "CN v7",
-            "kind": "fix"
-          }
-        ]
-      }
-    }
-  ]
+ "episodes": [
+  {
+   "id": "EP01",
+   "title": "EP01 荆轲刺秦",
+   "zh": {
+    "file": "audio/latest.mp3",
+    "version": "audio/version.txt",
+    "transcript": "audio/latest.tr.json",
+    "ver": "EP01_v12"
+   },
+   "en": {
+    "file": "audio/latest_en.mp3",
+    "version": "audio/version_en.txt"
+   }
+  },
+  {
+   "id": "EP02",
+   "title": "EP02 造皇帝 混音试听",
+   "zh": {
+    "file": "audio/ep02.mp3",
+    "version": "audio/version_ep02.txt",
+    "ver": "EP02_v3.11e_混音试听",
+    "cl": [
+     {
+      "t": "01:04.1",
+      "label": "改：倒回音（邯郸）低钟+渐强 5s，同 EP01；轻垫古琴主题",
+      "version": "v3.11e",
+      "kind": "fix"
+     },
+     {
+      "t": "00:11.3",
+      "label": "改：开场「过去」去升调（s002 重配 seed914），无片头垫",
+      "version": "v3.11e",
+      "kind": "fix"
+     },
+     {
+      "t": "04:20.0",
+      "label": "改：去掉 A09/A13/A17（按你👎）；邯郸后时间轴 +5s",
+      "version": "v3.11e",
+      "kind": "fix"
+     },
+     {
+      "t": "01:04.1",
+      "label": "倒回音（邯郸）el_death_toll+el_deputy_dread",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "00:00.0",
+      "label": "A01 音乐·极轻的低弦呼吸",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "00:59.9",
+      "label": "A03 转场·一声轻微木简翻动质感",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "01:08.8",
+      "label": "A04 环境·战国城镇远景",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "02:01.9",
+      "label": "A05 音乐·轻弦短动机",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "03:11.1",
+      "label": "A07 音乐·极淡低频节奏纹理",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "04:40.4",
+      "label": "A10 音乐·音乐微微收窄",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "05:34.2",
+      "label": "A12 音乐·古朴而非复古考据的音色纹理",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "06:56.4",
+      "label": "A14 音乐·低弦脉动略加紧",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "08:55.5",
+      "label": "A16 转场·木简轻放案面一声",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "10:11.3",
+      "label": "A18 音效·竹简",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "10:56.2",
+      "label": "A19 音效·毛笔在木简上的轻微书写摩擦",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "11:56.0",
+      "label": "A20 音效·青铜量器",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "12:41.3",
+      "label": "A21 音效·木轮在压实土路上缓行",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "13:18.5",
+      "label": "A22 环境·道路远景",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "14:00.1",
+      "label": "A23 音效·简牍束带松开",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "14:23.7",
+      "label": "A24 环境·极淡的木牍翻检",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "14:36.3",
+      "label": "A25 音乐·细微短促节奏型",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "15:28.9",
+      "label": "A26 音乐·前文统一措施的旋律动机第一次完整露出",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "15:31.1",
+      "label": "A27 音效·金属器物相碰",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "15:41.0",
+      "label": "A28 音效·炉火轻鸣与熔炼金属的低频空气质感",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "15:57.8",
+      "label": "A29 音乐·单个低铜质音色延音",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "16:46.5",
+      "label": "A31 环境·远景木轮渐远和微弱衣料摩擦",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "17:15.5",
+      "label": "A32 音乐·主题第一次清楚展开",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "19:22.8",
+      "label": "A33 转场·音乐缓慢退出",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "19:27.9",
+      "label": "A34 环境·稀薄草原风",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "20:30.0",
+      "label": "A35 环境·北方开阔风声尾音自然衰减",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "20:50.3",
+      "label": "收束音效（万里长城）",
+      "version": "v3.11e",
+      "kind": "sfx"
+     },
+     {
+      "t": "20:55.6",
+      "label": "片尾音乐（古琴+埙 15s，收束后 1s 空）",
+      "version": "v3.11e",
+      "kind": "sfx"
+     }
+    ]
+   },
+   "en": {
+    "file": "audio/ep02_en_mix_v4.mp3",
+    "version": "audio/version_ep02_en_mix.txt",
+    "transcript": "audio/ep02_en_mix_v4.tr.json",
+    "ver": "EP02_EN_v4_混音试听",
+    "cl": [
+     {
+      "t": "00:00.0",
+      "label": "C01 片头主题独奏，旁白后移+7.0s",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "00:06.8",
+      "label": "改：片头独奏7.0s后旁白起",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "01:25.5",
+      "label": "C02 邯郸倒回（259 BC 后，缝补到3.8s）",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "01:27.5",
+      "label": "改：邯郸缝插1.8s静音",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "02:28.7",
+      "label": "f015 重生成(过快)",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "03:18.9",
+      "label": "f030 读音修：dagger 句加停顿",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "03:40.9",
+      "label": "f037 重生成(过快)",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "04:47.7",
+      "label": "C03 峰2 Emperor. 后",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "06:44.6",
+      "label": "f093 读音修：kings there…",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "08:12.1",
+      "label": "C04 峰3 裁决床",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "13:30.7",
+      "label": "C05 兵器熔铸",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "14:11.7",
+      "label": "f209 重生成(过快)",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "14:43.6",
+      "label": "f218 重生成(过快)",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "14:52.2",
+      "label": "f221 读音修：seat… of a strong kingdom",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "15:42.6",
+      "label": "C06 咸阳盛顶，Look north 前静",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "16:02.0",
+      "label": "f239 读音修：look… at the map",
+      "version": "EN mix v4",
+      "kind": "fix"
+     },
+     {
+      "t": "16:50.5",
+      "label": "C07 收束",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     },
+     {
+      "t": "16:57.5",
+      "label": "C08 片尾主题",
+      "version": "EN mix v4",
+      "kind": "sfx"
+     }
+    ]
+   }
+  },
+  {
+   "id": "EP03",
+   "title": "EP03 蒙恬筑边 混音试听",
+   "zh": {
+    "file": "audio/ep03_mix_v7.mp3",
+    "version": "audio/version_ep03.txt",
+    "transcript": "audio/ep03_mix_v7.tr.json",
+    "ver": "EP03_CN_v7_混音试听",
+    "cl": [
+     {
+      "t": "00:00.0",
+      "label": "CN-C01 片头主题独奏（古琴＋埙），旁白后移+7.0s",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "00:00.0",
+      "label": "改：片头垫入7.0s主题独奏，旁白整体+7.0s",
+      "version": "CN mix v7",
+      "kind": "fix"
+     },
+     {
+      "t": "00:16.0",
+      "label": "CN-C02 北风：两千多年前往北走→领兵的是蒙恬（薄、压在人声下）",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "00:24.8",
+      "label": "⚑年份口播：二百一十五年",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "01:52.5",
+      "label": "⚑多音：都得",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "02:05.7",
+      "label": "⚑多音：也得",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "04:07.7",
+      "label": "⚑多音：还得",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "04:43.2",
+      "label": "⚑多音：率军＋年份二百一十三年",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "05:23.5",
+      "label": "⚑多音：率军",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "05:50.3",
+      "label": "CN-C03 时间转场：史书无名→民间孟姜女传说",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "05:50.3",
+      "label": "关键cue：孟姜女传说转场",
+      "version": "CN mix v7",
+      "kind": "fix"
+     },
+     {
+      "t": "06:17.5",
+      "label": "CN-C04 悲哭高峰：孟姜女大哭→哭倒长城（细床，非煽情）",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "06:17.5",
+      "label": "关键cue：哭倒长城高峰细床",
+      "version": "CN mix v7",
+      "kind": "fix"
+     },
+     {
+      "t": "08:44.5",
+      "label": "CN-C05 清场回史实：历史上的蒙恬",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "10:52.8",
+      "label": "⚑多音：还得",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "11:46.7",
+      "label": "CN-C06 咸阳宫宴／殿上争论空气",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "11:47.0",
+      "label": "⚑年份口播：二百一十三年",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "13:10.3",
+      "label": "⚑收束问句",
+      "version": "CN v7",
+      "kind": "fix"
+     },
+     {
+      "t": "13:14.9",
+      "label": "CN-C07 收束：传给后人？问句后",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     },
+     {
+      "t": "13:14.9",
+      "label": "关键cue：收束＋片尾（结尾待wei自配）",
+      "version": "CN mix v7",
+      "kind": "fix"
+     },
+     {
+      "t": "13:21.7",
+      "label": "CN-C08 片尾主题",
+      "version": "CN mix v7",
+      "kind": "sfx"
+     }
+    ],
+    "cues": "audio/ep03_cues.json"
+   }
+  }
+ ]
 }
