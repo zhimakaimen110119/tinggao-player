@@ -343,14 +343,20 @@
    "id": "EP03",
    "title": "EP03 蒙恬筑边 混音试听",
    "zh": {
-    "file": "audio/ep03_mix_v7_4.mp3",
+    "file": "audio/ep03_mix_v7_5.mp3",
     "version": "audio/version_ep03.txt",
-    "transcript": "audio/ep03_mix_v7_4.tr.json",
-    "ver": "EP03_CN_v7.4_混音试听",
+    "transcript": "audio/ep03_mix_v7_5.tr.json",
+    "ver": "EP03_CN_v7.5_混音试听",
     "cl": [
      {
       "t": "13:08.3",
-      "label": "改：末句「这个刚刚统一的天下，究竟该怎样传给后人？」改为wei录音经Seed-VC变声至旁白音色（不再用手机原声）；重接缝：从原v7干声起只换z171，响度对齐z169–z170，60ms交叉淡化；其后收束/片尾 +0.85s",
+      "label": "改：末句只换后半——「这个刚刚统一的天下，」恢复原TTS；「究竟该怎样传给后人？」=wei录音（仅此半句）经Seed-VC变声至旁白；保留原逗号停顿，响度对齐，50ms交叉淡化；其后收束/片尾 +0.32s（相对v7.4）",
+      "version": "CN mix v7.5",
+      "kind": "fix"
+     },
+     {
+      "t": "13:08.3",
+      "label": "（已被v7.5取代）改：末句「这个刚刚统一的天下，究竟该怎样传给后人？」改为wei录音经Seed-VC变声至旁白音色（不再用手机原声）；重接缝：从原v7干声起只换z171，响度对齐z169–z170，60ms交叉淡化；其后收束/片尾 +0.85s",
       "version": "CN mix v7.4",
       "kind": "fix"
      },
@@ -469,7 +475,7 @@
       "kind": "fix"
      },
      {
-      "t": "13:13.7",
+      "t": "13:14.0",
       "label": "CN-C07 收束：传给后人？问句后",
       "version": "CN mix v7.1",
       "kind": "sfx"
@@ -481,7 +487,7 @@
       "kind": "fix"
      },
      {
-      "t": "13:20.5",
+      "t": "13:20.8",
       "label": "CN-C08 片尾主题",
       "version": "CN mix v7.1",
       "kind": "sfx"
