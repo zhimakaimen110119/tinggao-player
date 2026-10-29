@@ -332,6 +332,138 @@
           }
         ]
       }
+    },
+    {
+      "id": "EP03",
+      "title": "EP03 蒙恬筑边 中文整集干声",
+      "zh": {
+        "file": "audio/ep03.mp3",
+        "version": "audio/version_ep03.txt",
+        "transcript": "audio/ep03.tr.json",
+        "ver": "EP03_CN_v7_整集干声",
+        "cl": [
+          {
+            "t": "00:00.5",
+            "label": "§开场 今人上墙",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "00:17.8",
+            "label": "§北击匈奴／蒙恬",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "00:45.9",
+            "label": "§没有班师",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "02:14.4",
+            "label": "§旧墙复用",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "04:00.7",
+            "label": "§还得派人北上",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "04:36.2",
+            "label": "§二一三年／发往长城",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "05:44.4",
+            "label": "§孟姜女传说",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "08:38.6",
+            "label": "§史实蒙恬",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "09:27.3",
+            "label": "§两千年后的墙",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "10:11.5",
+            "label": "§拨回始皇年代",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "11:40.0",
+            "label": "§咸阳宫宴／下集钩",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "00:17.8",
+            "label": "⚑年份口播：二百一十五年",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "01:45.5",
+            "label": "⚑多音：都得",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "01:58.7",
+            "label": "⚑多音：也得",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "04:00.7",
+            "label": "⚑多音：还得",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "04:36.2",
+            "label": "⚑多音：率军＋年份二百一十三年",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "05:16.5",
+            "label": "⚑多音：率军",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "10:45.8",
+            "label": "⚑多音：还得",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "11:40.0",
+            "label": "⚑年份口播：二百一十三年",
+            "version": "CN v7",
+            "kind": "fix"
+          },
+          {
+            "t": "13:03.3",
+            "label": "⚑收束问句",
+            "version": "CN v7",
+            "kind": "fix"
+          }
+        ]
+      }
     }
   ]
 }
